@@ -1,0 +1,100 @@
+boxcount = 0
+function Box(name, price, prefixes, suffixes, cubes, image) {
+	this.name = name
+	this.price = price
+	this.prefixes = prefixes
+	this.suffixes = suffixes
+	this.cubes = cubes
+	this.image = image
+	this.boxid = boxcount
+	boxcount++
+	user.boxes.push({box: this, amount: 0})
+	allboxes.push(this)
+}
+allboxes = []
+spincooldown = false
+pull = {}
+function unbox(box){
+	if (spincooldown == false) {
+		$("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
+		spincooldown = true
+		pull = {cube: false, prefix: false, suffix: false}
+		ticket = randomnumber(1000)
+		if (ticket <=  400) {                  // light green
+			console.log('Cube Pull is light green')
+			pull.cube = box.cubes.filter(cube => cube.rarity == light_green)[randomarray(box.cubes.filter(cube => cube.rarity == light_green).length)]
+			console.log(pull.cube.name)
+		}
+		if (ticket <=  650 && ticket >= 401) { // green
+			console.log('Cube Pull is green')
+			pull.cube = box.cubes.filter(cube => cube.rarity == green)[randomarray(box.cubes.filter(cube => cube.rarity == green).length)]
+			console.log(pull.cube.name)
+		}
+		if (ticket <=  800 && ticket >= 651) { // blue
+			console.log('Cube Pull is blue')
+			pull.cube = box.cubes.filter(cube => cube.rarity == blue)[randomarray(box.cubes.filter(cube => cube.rarity == blue).length)]
+			console.log(pull.cube.name)
+		}
+		if (ticket <=  900 && ticket >= 801) { // purple
+			console.log('Cube Pull is purple')
+			pull.cube = box.cubes.filter(cube => cube.rarity == purple)[randomarray(box.cubes.filter(cube => cube.rarity == purple).length)]
+			console.log(pull.cube.name)
+		}
+		if (ticket <=  980 && ticket >= 901) { // orange
+			console.log('Cube Pull is orange')
+			pull.cube = box.cubes.filter(cube => cube.rarity == orange)[randomarray(box.cubes.filter(cube => cube.rarity == orange).length)]
+			console.log(pull.cube.name)
+		}
+		if (ticket <=  995 && ticket >= 981) { // red
+			console.log('Cube Pull is red')
+			pull.cube = box.cubes.filter(cube => cube.rarity == red)[randomarray(box.cubes.filter(cube => cube.rarity == red).length)]
+			console.log(pull.cube.name)
+		}
+		if (ticket <= 1000 && ticket >= 996){ // black
+			console.log('Cube Pull is black')
+			pull.cube = box.cubes.filter(cube => cube.rarity == black)[randomarray(box.cubes.filter(cube => cube.rarity == black).length)]
+			console.log(pull.cube.name)
+		}
+		console.log(ticket)
+		reelthecasein(ticket)
+	} else {
+		if (spincooldown == true) {
+			console.log("ERROR! REEL IS SPINNING!")
+		}
+	}
+}
+function returnraritycolor(item){
+switch (item) {
+	  case light_green:
+		  return "rgba(144, 193, 63, 0.8)"
+	  	break;
+		case green:
+			return "rgba(72, 114, 43, 0.8)"
+			break;
+		case blue:
+			return "rgba(0, 110, 144, 0.8)"
+			break;
+	  case purple:
+			return "rgba(98, 70, 107, 0.8)"
+			break;
+	  case orange:
+			return "rgba(219, 76, 64, 0.8)"
+			break;
+	  case red:
+			return "rgba(191, 26, 47, 0.8)"
+			break;
+		case black:
+			return "rgba(0, 0, 0, 0.8)"
+		  break;
+		default:
+console.log("invalid color!!")
+	}
+}
+
+// BOX DECLARATIONS
+
+CubeSeriesOne = new Box("Cube Series #1", 1000, ['epic'], ['strangeness'], [bluecube, redcube, greencube, purplecube, greenmushroomcube, bluemushroomcube, ironcube, redmushroomcube, hologramcube, coppercube, goldcube, icecube, diamondcube, emeraldcube, plastiquecube, aspectscube], "sprites/cubeseriesonecase.png")
+CubeSeriesTwo = new Box("Cube Series #2", 1000, ['odd'], ['cringe'], [bluetargetcube, browntargetcube, greentargetcube, pinktargetcube, purpletargetcube, redtargetcube, bluegalaxycube, pinkgalaxycube, purplegalaxycube, redgalaxycube, galaxycube, mosaicacube, mosaicocube, boomcube, teleportationcube, pillarcube, dice, neoncube, binarycube], "sprites/cubeseriestwocase.png")
+
+
+selectedbox = CubeSeriesOne
