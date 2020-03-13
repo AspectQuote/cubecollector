@@ -55,27 +55,3 @@ function resetspinner(beginning){
   }, 1250)
 }
 // add this stuff to a separate file later!
-function createclickablebox(e){
-  $("#box"+e).click(function(){
-    $("#box"+selectedbox.boxid).css("filter",  "")
-    selectedbox = allboxes[e]
-    $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
-    console.log("Selected box is now "+allboxes[e].name)
-    $("#box"+e).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
-  })
-}
-function updateinventorydisplay() {
-  $("#inventory").html("")
-  for(i=0; i < user.inventory.length; i++) {
-     $("#inventory").append("<div style='border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(1px 1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'></div>")
-  }
-}
-updatemoneydisplay()
-for (var i = 0; i < allboxes.length; i++) {
-  $("#boxes").append("<img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'>")
-  createclickablebox(i)
-}
-$("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
-checklocalstorage()
-updatemoneydisplay()
-updateinventorydisplay()

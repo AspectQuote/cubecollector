@@ -43,7 +43,7 @@ pillarcube = new Cube("Pillar Cube", orange, "Despite comprising of only solid m
 dice = new Cube("The D6", red, "A normal sized 6-sided die made from ivory and indian ink.", 8951, "sprites/dice.png")
 neoncube = new Cube("Neon Cube", red, "This cube is one small multicolored neon light, complete with an on-off switch.", 10356, "sprites/neoncube.png")
 binarycube = new Cube("Binary Cube", black, "The cube shifts little by little every moment...", 29137, "sprites/binarycube.png")
-// CUBE SERIES #3, 0 cubes
+// CUBE SERIES #3, 17 cubes
 arascube = new Cube("Interdimensional Cube", black, "A tear in the fabric of space, you can feel it pulsing with cosmic energy <br/> By Arachnix", 78612, "sprites/arascube.png")
 bluecheckeredcube = new Cube("Blue Checkered Cube", light_green, "A painted, checkered cube", 70, "sprites/bluecheckeredcube.png")
 checkeredcube = new Cube("Checkered Cube", light_green, "A painted, checkered cube", 100, "sprites/checkeredcube.png")
