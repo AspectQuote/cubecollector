@@ -3,17 +3,19 @@ font-family: 'Sen', sans-serif;
 image-rendering: pixelated;
 user-select: none;
 }
-body {
-  margin:0px;
-  height: 100%;
+html,body {
+height: 100%;
+margin: 0;
+background-color: #303036;
 }
 #app {
 display: flex;
-height: 100%;
+height: 90%;
 }
 #unboxingwrapper {
 width: 70%;
 height: 90%;
+background-color: #303036;
 }
 #topbar {
 width:100%;
@@ -191,6 +193,7 @@ padding-right: 10px;
 #boxes {
 background-color: #303036;
 text-align: center;
+height: 100%;
 }
 .boxicons {
 padding: 10px;
@@ -215,11 +218,14 @@ color: #BDBBB0;
 .inventorymain {
 text-align: center;
 height: 70%;
+overflow-y: scroll;
+overflow-x: hidden;
 }
 .inventorycontainer {
 float: right;
 width: 30%;
 background-color: #28282D;
+height: 90%;
 }
 .inventoryheader {
 border: 1px solid #121212;
@@ -242,4 +248,19 @@ width: 100%;
 }
 .inventoryslots {
 padding: 5px;
+position: relative;
+color: white;
+}
+#getmoneybutton {
+color: white;
+float: right;
+}
+#getmoneybutton:hover {
+cursor: pointer;
+}
+.itempriceoverlay {
+position: absolute;
+left:0;
+bottom:0;
+font-size: x-small;
 }
