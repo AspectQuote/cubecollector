@@ -25,6 +25,10 @@ $("#entries").append(ghostreel)
     $("#lastunboxname").html(pull.cube.name)
     $("#lastunboxflavortext").html(pull.cube.flavortext)
 		$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(pull.cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(pull.cube.rarity)+")")
+    user.inventory.push(pull) //weird but aight
+    savegame()
+    $("#inventoryslotsfilled").html(user.inventory.length)
+    updateinventorydisplay()
   }, 6000)
   setTimeout(function(){
     resetspinner(1)
@@ -60,9 +64,18 @@ function createclickablebox(e){
     $("#box"+e).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
   })
 }
+function updateinventorydisplay() {
+  $("#inventory").html("")
+  for(i=0; i < user.inventory.length; i++) {
+     $("#inventory").append("<div style='border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(1px 1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'></div>")
+  }
+}
 updatemoneydisplay()
 for (var i = 0; i < allboxes.length; i++) {
   $("#boxes").append("<img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'>")
   createclickablebox(i)
 }
 $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
+checklocalstorage()
+updatemoneydisplay()
+updateinventorydisplay()

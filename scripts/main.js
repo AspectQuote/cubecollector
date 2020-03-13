@@ -23,7 +23,7 @@ $("#casebuybutton").click(function(){
 	}
 })
 $("#caseopenbutton").click(function(){
-	if (user.boxes[selectedbox.boxid].amount >= 1 && spincooldown == false) {
+	if (user.boxes[selectedbox.boxid].amount >= 1 && spincooldown == false && user.inventory.length < 200) {
 		user.boxes[selectedbox.boxid].amount -= 1
 		unbox(selectedbox)
 	} else {
@@ -45,3 +45,24 @@ $("#getmoneybutton").click(function(){
 	user.money += 1000
 	updatemoneydisplay()
 })
+function checklocalstorage(){
+	if(typeof localStorage.getItem("user") == 'object'){ // if user doesnt have a save
+		savegame()
+		console.log('saved game for first time startup')
+	} else {
+		loadsave()
+		console.log('loaded save game')
+	}
+}
+function savegame(){
+	/* localStorage.setItem("usermoney", user.money)
+	localStorage.setItem("userboxes", user.boxes)
+	localStorage.setItem("userinventory", user.inventory) */
+	localStorage.setItem("user", JSON.stringify(user))
+}
+function loadsave(){
+	/* user.money = localStorage.getItem("usermoney")
+	user.boxes = localStorage.getItem("userboxes")
+	user.inventory = localStorage.getItem("userinventory") */
+	user = JSON.parse(localStorage.getItem("user"))
+}

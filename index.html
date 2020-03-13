@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160382283-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-160382283-1');
-</script>
-
-
 		<title>Cube Collector</title>
 		<div class="topbarcontainer">
 			<div id="topbar">
@@ -30,70 +18,72 @@
 		</div>
 	</head>
 	<body>
-		<div class="unboxingheader">
-		</div>
-		<div class="boxcontainer">
-			<div class="boxesfooter">
-				<div class="lastunbox">
-					<div id="lastunboxingwrapper">
-						<div id="casename">
-							CaseName
-						</div>
-						<img id="lastunboxicon" src="sprites/cube16x16temp.png" />
-						<div id="lastunboxname">
-							Last unbox name
-						</div>
-						<div id="lastunboxflavortext">
-							Last unbox description
+	<div id="app">
+		<div id="unboxingwrapper">
+			<div class="boxcontainer">
+				<div class="boxesfooter">
+					<div class="lastunbox">
+						<div id="lastunboxingwrapper">
+							<div id="casename">
+								CaseName
+							</div>
+							<img id="lastunboxicon" src="sprites/cube16x16temp.png" />
+							<div id="lastunboxname">
+								Last unbox name
+							</div>
+							<div id="lastunboxflavortext">
+								Last unbox description
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="unboxingcontainer">
-			<div class="unboxingfooter">
-				<div class="casereel">
-					<div id="reelcontainer">
-						<div id="entrycontainer">
-							<div id="entries">
-								<div class="entries" id="entry1"></div>
-								<div class="entries" id="entry2"></div>
-								<div class="entries" id="entry3"></div>
-								<div class="entries" id="entry4"></div>
-								<div class="entries" id="entry5"></div>
-								<div class="entries" id="entry6"></div>
-								<div class="entries" id="entry7"></div>
+			<div class="unboxingcontainer">
+				<div class="unboxingfooter">
+					<div class="casereel">
+						<div id="reelcontainer">
+							<div id="entrycontainer">
+								<div id="entries">
+									<div class="entries" id="entry1"></div>
+									<div class="entries" id="entry2"></div>
+									<div class="entries" id="entry3"></div>
+									<div class="entries" id="entry4"></div>
+									<div class="entries" id="entry5"></div>
+									<div class="entries" id="entry6"></div>
+									<div class="entries" id="entry7"></div>
+								</div>
+								<div id="reeltick"></div>
 							</div>
-							<div id="reeltick"></div>
 						</div>
 					</div>
-				</div>
-				<div id="casebuttonswrapper">
-					<div id="caseopenbuttonwrapper">
-						<div class="casebuttons" id="caseopenbutton">
-							OPEN BOX
+					<div id="casebuttonswrapper">
+						<div id="caseopenbuttonwrapper">
+							<div class="casebuttons" id="caseopenbutton">
+								OPEN BOX
+							</div>
+						</div>
+						<div id="casebuybuttonwrapper">
+							<div class="casebuttons" id="casebuybutton">
+								BUY BOX
+							</div>
 						</div>
 					</div>
-					<div id="casebuybuttonwrapper">
-						<div class="casebuttons" id="casebuybutton">
-							BUY BOX
-						</div>
+					<div id="boxes">
 					</div>
-				</div>
-				<div id="boxes">
 				</div>
 			</div>
 		</div>
 		<div class="inventorycontainer">
 			<div class="inventoryheader">
-				<div id="inventoryvalue">
+				<div class="inventoryheaderitems" id="inventoryvalue">
 					InventoryValue
 				</div>
-				<div id="inventoryselling">
+				<div class="inventoryheaderitems" id="inventoryselling">
 					InventorySelling
 				</div>
-				<div id="inventoryslotsfilledcount">
-					InventorySlotsFilledCount
+				<div class="inventoryheaderitems" id="inventoryslotsfilledcount">
+					<div class="inventoryslotitems" id="inventoryslotsfilled">0</div>
+					<div class="inventoryslotitems" id="inventoryslotsmax">/200</div>
 				</div>
 			</div>
 			<div class="inventorymain">
@@ -103,11 +93,12 @@
 			</div>
 			<div class="inventoryfooter">
 				InventoryFooter
-				<div id="getmoneybutton">
-					click to get money
-				</div>
 			</div>
 		</div>
+		</div>
+		<div id="getmoneybutton">
+					click to get money
+				</div>
 	</body>
 </html>
 <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">

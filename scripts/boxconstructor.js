@@ -95,6 +95,6 @@ console.log("invalid color!!")
 
 CubeSeriesOne = new Box("Cube Series #1", 1000, ['epic'], ['strangeness'], [bluecube, redcube, greencube, purplecube, greenmushroomcube, bluemushroomcube, ironcube, redmushroomcube, hologramcube, coppercube, goldcube, icecube, diamondcube, emeraldcube, plastiquecube, aspectscube], "sprites/cubeseriesonecase.png")
 CubeSeriesTwo = new Box("Cube Series #2", 1000, ['odd'], ['cringe'], [bluetargetcube, browntargetcube, greentargetcube, pinktargetcube, purpletargetcube, redtargetcube, bluegalaxycube, pinkgalaxycube, purplegalaxycube, redgalaxycube, galaxycube, mosaicacube, mosaicocube, boomcube, teleportationcube, pillarcube, dice, neoncube, binarycube], "sprites/cubeseriestwocase.png")
-
+CubeSeriesThree = new Box("Cube Series #3", 1500, ['interesting'], ['greed'], [arascube, bluecheckeredcube, checkeredcube, cleanerscube, cyangrass, dirtbutwithoutcopyrightcube, holycube, holeycube, minecraftgrass, mutescube, pinkcheckeredcube, purplegrass, mutescube, pinkcheckeredcube, purplegrass, redgrass, invisiblecube, mintycube, redeye, yelloweye], "sprites/cubeseriesthreecase.png")
 
 selectedbox = CubeSeriesOne

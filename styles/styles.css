@@ -5,12 +5,25 @@ user-select: none;
 }
 body {
   margin:0px;
+  height: 100%;
+}
+#app {
+display: flex;
+height: 100%;
+}
+#unboxingwrapper {
+width: 70%;
+height: 90%;
 }
 #topbar {
 width:100%;
 background-color: #050116;
-padding: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
 height: 20px;
+}
+#homelink {
+padding-left: 5px;
 }
 #navwrapper {
 float: left;
@@ -184,6 +197,9 @@ padding: 10px;
 width: 96px;
 transition: 0.75s;
 }
+.boxicons:hover {
+cursor: pointer;
+}
 #lastunboxname {
 font-size: small;
 color: #BDBBB0;
@@ -195,4 +211,35 @@ color: #BDBBB0;
 }
 #casename {
 color: #BDBBB0;
+}
+.inventorymain {
+text-align: center;
+height: 70%;
+}
+.inventorycontainer {
+float: right;
+width: 30%;
+background-color: #28282D;
+}
+.inventoryheader {
+border: 1px solid #121212;
+background-color: #303036;
+color: white;
+font-size: small;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between;
+padding: 5px;
+}
+#inventoryslotsfilledcount {
+display: flex;
+}
+#inventory {
+display: flex;
+flex-wrap: wrap;
+width: 100%;
+}
+.inventoryslots {
+padding: 5px;
 }
