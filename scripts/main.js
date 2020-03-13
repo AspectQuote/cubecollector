@@ -14,6 +14,8 @@ red = "red"
 black = "black"
 moneyword = ''
 fancymoneyword = ''
+
+window.alert("Double Click to sell items")
 $("#casebuybutton").click(function(){
 	if (user.money >= selectedbox.price) {
 		user.boxes[selectedbox.boxid].amount += 1
@@ -31,18 +33,11 @@ $("#caseopenbutton").click(function(){
 	}
 })
 function updatemoneydisplay(){
-	$("#moneyamount").html("Money: $"+returnusermoneystring())
-}
-function returnusermoneystring(){
-	moneyword = JSON.stringify(user.money)
-	fancymoneyword = ''
-	for(i=0; moneyword.length-2 > i; i++) {
-		fancymoneyword += moneyword[i]
-	}
-	return fancymoneyword
+	$("#moneyamount").html("Money: $"+(user.money/100).toLocaleString())
 }
 $("#getmoneybutton").click(function(){
 	user.money += 1000
+	savegame()
 	updatemoneydisplay()
 })
 function checklocalstorage(){
