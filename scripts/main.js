@@ -35,7 +35,7 @@ function updatemoneydisplay(){
 	$("#moneyamount").html("Money: $"+(user.money/100).toLocaleString())
 }
 $("#getmoneybutton").click(function(){
-	user.money += 1000
+	user.money += Math.ceil(randomnumber(1000)/1)
 	savegame()
 	updatemoneydisplay()
 })
