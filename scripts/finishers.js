@@ -48,3 +48,4 @@ $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount
 checklocalstorage()
 updatemoneydisplay()
 updateinventorydisplay()
+updatetabdisplay("home")
