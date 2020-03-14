@@ -4,8 +4,13 @@ function Cube(name, rarity, flavortext, price, image) {
 	this.flavortext = flavortext
 	this.price = price
 	this.image = image
-}
 
+	this.cubeid = cubeid
+	cubeid++
+	allcubes.push(this)
+}
+allcubes =[]
+cubeid = 0;
 //CUBE SERIES #1, 16 cubes
 bluecube = new Cube("Blue Cube", light_green, "It's like a 3cm x 3cm x 3cm lego with no connecting parts!", 25, "sprites/bluecube.png")
 redcube = new Cube("Red Cube", light_green, "It's like a 3cm x 3cm x 3cm lego with no connecting parts!", 20, "sprites/redcube.png")

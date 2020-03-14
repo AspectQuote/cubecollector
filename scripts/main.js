@@ -15,7 +15,6 @@ black = "black"
 moneyword = ''
 fancymoneyword = ''
 
-window.alert("Double Click to sell items")
 $("#casebuybutton").click(function(){
 	if (user.money >= selectedbox.price) {
 		user.boxes[selectedbox.boxid].amount += 1
@@ -60,4 +59,12 @@ function loadsave(){
 	user.boxes = localStorage.getItem("userboxes")
 	user.inventory = localStorage.getItem("userinventory") */
 	user = JSON.parse(localStorage.getItem("user"))
+	for (var i = 0; i < user.inventory.length; i++) {
+		if (user.inventory[i].cube.cubeid) { // removes old cubes without ID's
+			user.inventory[i].cube.price = allcubes[user.inventory[i].cube.cubeid].price
+		} else {
+			user.inventory.splice(i, 1)
+		}
+	}
+	updateinventorydisplay()
 }

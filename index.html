@@ -13,9 +13,6 @@
 					<div class="navbaritems" id="levellink">Levels</div>
 					<div class="navbaritems" id="settingslink">Settings</div>
 				</div>
-				<div id="getmoneybutton">
-					click to get money
-				</div>
 				<div id="moneyamount">
 					Money
 				</div>
@@ -76,6 +73,31 @@
 				</div>
 			</div>
 		</div>
+		<div id="homewrapper">
+			<div id="homeheader" style="width: 100%; text-align: center; padding: 10px; font-size: x-large;"> Home </div>
+			<div id="homemain" style="width: 60%; text-align: left; padding-left: 5%; padding-right: 5%; height: 90%; border-radius: 25px 25px 0% 0%; background-color: #1C1C1C; position: absolute; bottom: 0;">
+				<div id="announcements">
+					<h1>Patch 3-13-20</h1>
+					<div class="homeheader">How to play</div>
+					<div class="homedata">You can open boxes, and get cubes. Each cube has its own rarity (and price!) and each box has its own cubes. When you get a cube, you may click on it to inspect it, and if you double click on it, you can sell it. A few planned features will give lower-tier cubes more uses ;)</div>
+					<div class="homeheader">Inventories Wiped</div>
+					<div class="homedata">I apologize for having to wipe everyone's inventory; the site did not have the necessary code to allow for item's prices to be updated or manipulated. The wipe will never happen for the same reason ever again.</div>
+					<div class="homeheader">Discord</div>
+					<div class="homedata">Join the site's discord in order to participate in events like creating your own cubes for the site, and discussing/suggesting features for the site! (Feel free to invite your friends too!) You can join the discord here: <a href="https://discordapp.com/invite/C3U8scK" target="_blank">discord</a></div>
+					<div class="homeheader">Update info</div>
+					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">this homepage!</li><li class="homedata">multi-tab support</li><li class="homedata">price updates for black and red items, making them more balanced and worth unboxing (prices have been adjusted proportional to rarity)</li></ul></div>
+				</div>
+			</div>
+		</div>
+		<div id="levelwrapper">
+			Levels and Experience are Coming Soon!
+		</div>
+		<div id="tradeupswrapper">
+			Trade Ups are Coming Soon!
+		</div>
+		<div id="settingswrapper">
+			Settings are Coming Soon!
+		</div>
 		<div class="inventorycontainer">
 			<div class="inventoryheader">
 				<div class="inventoryheaderitems" id="inventoryvalue">
@@ -95,7 +117,9 @@
 				</div>
 			</div>
 			<div class="inventoryfooter">
-				InventoryFooter
+				<div id="getmoneybutton" style=" text-align: center; width: 100%; height: 100%;">
+					click to get money
+				</div>
 			</div>
 		</div>
 		</div>
@@ -111,5 +135,6 @@
 <script src="scripts/prefixconstructor.js"></script>
 <script src="scripts/suffixconstructor.js"></script>
 <script src="scripts/casereel.js"></script>
+<script src="scripts/tabs.js"></script>
 <script src="scripts/finishers.js"></script>
 <link rel=stylesheet type=text/css href=styles/styles.css>
