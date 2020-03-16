@@ -1,5 +1,8 @@
 function createclickablebox(e){
   $("#box"+e).click(function(){
+    if(user.boxes[e] == undefined || null) {
+      user.boxes.push({box: allboxes[e], amount:0})
+    }
     $("#box"+selectedbox.boxid).css("filter",  "")
     selectedbox = allboxes[e]
     $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
