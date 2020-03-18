@@ -10,7 +10,7 @@ function createclickablebox(e){
     $("#box"+e).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
   })
 }
-function createclickablesellable(e){
+function createclickablesellable(e, jackpotmode){
 	$("#inventoryslot"+e).unbind()
 	$("#inventoryslot"+e).dblclick(function(){
     user.money += user.inventory[e].cube.price
@@ -25,13 +25,29 @@ function createclickablesellable(e){
     $("#lastunboxflavortext").html(user.inventory[e].cube.flavortext)
 	$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(user.inventory[e].cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(user.inventory[e].cube.rarity)+")")
   })
+  if (jackpotmode == true || currenttab == "jackpot") {
+    console.log("jackpot mode is on for "+user.inventory.length+" cubes!")
+    $("#inventoryslot"+e).unbind()
+    $("#inventoryslot"+e).dblclick(function(){
+      if (jpgoing == false && jpspinning == false) {
+        startjackpot(8)
+      }
+      if (jpspinning == false && jpgoing == true) {
+	       userenterjp(user.inventory[e])
+	       user.inventory.splice(e, 1)
+	       updateinventorydisplay()
+	       savegame()
+      }
+    })
+  }
 }
-function updateinventorydisplay() {
+function updateinventorydisplay(jackpotmode) {
   $("#inventory").html("")
   for(i=0; i < user.inventory.length; i++) {
      $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(1px 1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div></div>")
-	 createclickablesellable(i)
+	 createclickablesellable(i , jackpotmode)
   }
+  $("#inventoryslotsfilled").html(user.inventory.length)
   $("#inventoryvalue").html("Inventory Value: $"+(getplayerinventoryvalue()/100).toLocaleString())
 }
 val=0;
@@ -52,3 +68,4 @@ checklocalstorage()
 updatemoneydisplay()
 updateinventorydisplay()
 updatetabdisplay("home")
+$("#inventoryselling").html("Sell Below $" + (user.sellbelowprice/100).toLocaleString())

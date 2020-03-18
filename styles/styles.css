@@ -29,6 +29,12 @@ height: 100%;
 background-color: #303036;
 color: white;
 }
+#jpwrapper {
+width: 70%;
+height: 100%;
+background-color: #303036;
+color: white;
+}
 #settingswrapper {
 width: 70%;
 height: 100%;
@@ -79,6 +85,24 @@ border: 1px solid #050401;
 position: relative;
 transition: 0.75s;
 }
+#jpentrycontainer {
+background-image: linear-gradient(45deg, rgba(35, 35, 31, 0.3), rgba(35, 35, 31, 0.8));
+border: 1px solid #050401;
+position: relative;
+transition: 0.75s;
+}
+#jpentries {
+display: flex;
+flex-wrap:nowrap;
+padding-top: 5px;
+padding-bottom: 5px;
+position: relative;
+vertical-align: baseline;
+transition: transform 6s;
+transition-timing-function: cubic-bezier(.31,.9985,.31,.9985); /* Special thanks to @banned#7691 for helping with the points on the bezier curve! */
+width: 100%;
+min-width: 100%;
+}
 #entries {
 display: flex;
 flex-wrap:nowrap;
@@ -98,6 +122,16 @@ border-radius: 3px;
 height: 20px;
 z-index 1;
 transition: 0.5s;
+}
+.jpentries {
+float: left;
+color: white;
+overflow: hidden;
+border-radius: 3px;
+height: 100%;
+z-index 1;
+font-size: small;
+flex-shrink: 0;
 }
 #entry1 {
 background-image: linear-gradient(45deg, rgba(144, 193, 63, 0.3), rgba(144, 193, 63, 0.8)); /* Light Green */
@@ -156,6 +190,7 @@ background-image: linear-gradient(135deg, rgba(48, 48, 54, 0.95), rgba(48, 48, 5
 #lastunboxingwrapper {
 padding: 10px;
 text-align: center;
+background-image: url('../sprites/background-test.png');
 }
 #settingslink {
 float: right;
@@ -328,5 +363,88 @@ font-size: large;
 a:link, a:visited {
   color: #636363;
   text-decoration: underline;
+  cursor: pointer;
+}
+.jpheaderstuff {
+text-align: center;
+}
+#lastjpwinnerwrapper {
+text-align: center;
+}
+.individualjpentry {
+  color: white;
+  text-size: small;
+  padding: 5px 10px 5px 10px;
+}
+#individualjpentry0 {
+border-left: 3px solid rgb(153, 6, 6); /* red */
+background-image: linear-gradient(20deg, rgba(153, 6, 6, 0.5), rgba(153, 6, 6, 1));
+}
+#jpentry0 {
+background-image: linear-gradient(20deg, rgba(153, 6, 6, 0.5), rgba(153, 6, 6, 1));
+}
+#individualjpentry1 {
+border-left: 3px solid rgb(153, 92, 6); /* orange */
+background-image: linear-gradient(20deg, rgba(153, 92, 6, 0.5), rgba(153, 92, 6, 1));
+}
+#jpentry1 {
+background-image: linear-gradient(20deg, rgba(153, 92, 6, 0.5), rgba(153, 92, 6, 1));
+}
+#individualjpentry2 {
+border-left: 3px solid rgb(151, 153, 6); /* gold */
+background-image: linear-gradient(20deg, rgba(151, 153, 6, 0.5), rgba(151, 153, 6, 1));
+}
+#jpentry2 {
+background-image: linear-gradient(20deg, rgba(151, 153, 6, 0.5), rgba(151, 153, 6, 1));
+}
+#individualjpentry3 {
+border-left: 3px solid rgb(31, 153, 6); /* green */
+background-image: linear-gradient(20deg, rgba(31, 153, 6, 0.5), rgba(31, 153, 6, 1));
+}
+#jpentry3 {
+background-image: linear-gradient(20deg, rgba(31, 153, 6, 0.5), rgba(31, 153, 6, 1));
+}
+#individualjpentry4 {
+border-left: 3px solid rgb(6, 153, 48); /* teal */
+background-image: linear-gradient(20deg, rgba(6, 153, 48, 0.5), rgba(6, 153, 48, 1));
+}
+#jpentry4 {
+background-image: linear-gradient(20deg, rgba(6, 153, 48, 0.5), rgba(6, 153, 48, 1));
+}
+#individualjpentry5 {
+border-left: 3px solid rgb(6, 80, 153); /* blue */
+background-image: linear-gradient(20deg, rgba(6, 80, 153, 0.5), rgba(6, 80, 153, 1));
+}
+#jpentry5 {
+background-image: linear-gradient(20deg, rgba(6, 80, 153, 0.5), rgba(6, 80, 153, 1));
+}
+#individualjpentry6 {
+border-left: 3px solid rgb(58, 6, 153); /* purple */
+background-image: linear-gradient(20deg, rgba(58, 6, 153, 0.5), rgba(58, 6, 153, 1));
+}
+#jpentry6 {
+background-image: linear-gradient(20deg, rgba(58, 6, 153, 0.5), rgba(58, 6, 153, 1));
+}
+#individualjpentry7 {
+border-left: 3px solid rgb(104, 6, 153); /* violet */
+background-image: linear-gradient(20deg, rgba(104, 6, 153, 0.5), rgba(104, 6, 153, 1));
+}
+#jpentry7 {
+background-image: linear-gradient(20deg, rgba(104, 6, 153, 0.5), rgba(104, 6, 153, 1));
+}
+#individualjpentry8 {
+border-left: 3px solid rgb(153, 6, 104); /* fuschia */
+background-image: linear-gradient(20deg, rgba(153, 6, 104, 0.5), rgba(153, 6, 104, 1));
+}
+#jpentry8 {
+background-image: linear-gradient(20deg, rgba(153, 6, 104, 0.5), rgba(153, 6, 104, 1));
+}
+#usernamesetting {
+  display: inline-block;
+}
+.homealert {
+  color: #b5b333;
+}
+#inventoryselling:hover {
   cursor: pointer;
 }
