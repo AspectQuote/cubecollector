@@ -27,7 +27,6 @@ $("#entries").append(ghostreel)
 		$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(pull.cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(pull.cube.rarity)+")")
     user.inventory.push(pull) //weird but aight
     savegame()
-    $("#inventoryslotsfilled").html(user.inventory.length)
     updateinventorydisplay()
   }, 6000)
   setTimeout(function(){

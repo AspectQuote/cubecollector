@@ -1,0 +1,24 @@
+turtle shell cube      - turtle shell palette swaps to green, purple, red
+barrel cube            - cube that is a brown barrel
+explosive barrel cube  - barrel modeled like the hl2 barrels
+meat cube              - meat cube
+fire cube              - cube of fire
+ice cube               - cube of ice
+blood cube             - dark red cube of blood
+aquarium cube          - glass cube with aquarium inside
+broken cube            - palette swapped bits of cube: white, black, orange, green
+fancy cube             - white cube with monocle and moustache
+unusual cube           - cube modeled after the unusual item icon from team fortress 2
+code cube              - dark mode cube with brackets, an underscore, and a less than (<) symbol
+brick cube             - cube made of red bricks
+light cube             - very light cube
+heavy cube             - very heavy cube
+cracked cube           - guy fawkes-type cube with a description like, "it was illegaly obtained" or something like that
+treasure chest cube    - little stereotype treasure chest
+emotion cube(s)        - emotion corresponds to the color, takes up light green and green due to how many there are. 
+			 blue: sad, yellow: happy, red: angry, green: straight face, purple: dizzy
+			 orange: hungry, white: confused, gray: tired, brown: deceased, pink: surprised
+dog cube	       - exactly what it sounds like
+cat cube	       - exactly what it sounds like
+milk cube              - milk glass but in cube form
+egg cube               - egg, with a pun about chicken-egg supremacy

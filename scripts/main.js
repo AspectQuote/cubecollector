@@ -34,10 +34,16 @@ $("#caseopenbutton").click(function(){
 function updatemoneydisplay(){
 	$("#moneyamount").html("Money: $"+(user.money/100).toLocaleString())
 }
+moneycooldown = window.setInterval(function(){
+	moneycooldown = false
+}, 100)
 $("#getmoneybutton").click(function(){
-	user.money += Math.ceil(randomnumber(1000)/1)
-	savegame()
-	updatemoneydisplay()
+	if (moneycooldown == false) {
+		user.money += randomnumber(500)
+		savegame()
+		updatemoneydisplay()
+		moneycooldown = true
+	}
 })
 function checklocalstorage(){
 	if(typeof localStorage.getItem("user") == 'object'){ // if user doesnt have a save
@@ -45,6 +51,11 @@ function checklocalstorage(){
 		console.log('saved game for first time startup')
 	} else {
 		loadsave()
+		if (user.name == undefined) {
+			user.name == "Player"
+		}
+		user.bet = 0
+		user.betitems = []
 		console.log('loaded save game')
 	}
 }
@@ -59,6 +70,8 @@ function loadsave(){
 	user.boxes = localStorage.getItem("userboxes")
 	user.inventory = localStorage.getItem("userinventory") */
 	user = JSON.parse(localStorage.getItem("user"))
+	if (user.sellbelowprice == undefined) { user.sellbelowprice = 100;}
+	if (user.name == undefined) { user.name = "Player";}
 	for (var i = 0; i < user.inventory.length; i++) {
 		if (user.inventory[i].cube.cubeid) { // removes old cubes without ID's
 			user.inventory[i].cube.price = allcubes[user.inventory[i].cube.cubeid].price
@@ -68,3 +81,12 @@ function loadsave(){
 	}
 	updateinventorydisplay()
 }
+tryforjackpot = window.setInterval(function(){
+	console.log("trying for jackpot...")
+	if (randomnumber(20) == 1 && jpgoing == false) { // a 5% chance for the bots to start a JP every 3 seconds, an average of 1 minute between jps
+		startjackpot(8)
+	}
+}, 1000)
+$("#inventoryselling").click(function(){
+	sellallbelow(user.sellbelowprice)
+})
