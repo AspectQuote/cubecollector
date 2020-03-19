@@ -293,7 +293,7 @@ height: 97%;
 border: 1px solid #121212;
 background-color: #303036;
 color: white;
-font-size: small;
+font-size: xx-small;
 display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
@@ -446,5 +446,14 @@ background-image: linear-gradient(20deg, rgba(153, 6, 104, 0.5), rgba(153, 6, 10
   color: #b5b333;
 }
 #inventoryselling:hover {
+  cursor: pointer;
+}
+#inventorysorting {
+  display: flex;
+}
+#inventorysortlh:hover {
+  cursor: pointer;
+}
+#inventorysorthl:hover {
   cursor: pointer;
 }

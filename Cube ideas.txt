@@ -22,3 +22,14 @@ dog cube	       - exactly what it sounds like
 cat cube	       - exactly what it sounds like
 milk cube              - milk glass but in cube form
 egg cube               - egg, with a pun about chicken-egg supremacy
+
+jackpot betting equation:
+
+average inventory value - AIV
+jackpot value		- JV
+average jackpot bet	- AJB
+value of cubes to bet	- VOC
+jp entries amount	- JE
+
+betting value = AIV * playstyle factor
+VOC = betting value * playstyle density factor
