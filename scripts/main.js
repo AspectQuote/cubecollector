@@ -90,3 +90,9 @@ tryforjackpot = window.setInterval(function(){
 $("#inventoryselling").click(function(){
 	sellallbelow(user.sellbelowprice)
 })
+$("#inventorysortlh").click(function(){
+	sortinventory("lh")
+})
+$("#inventorysorthl").click(function(){
+	sortinventory("hl")
+})

@@ -67,7 +67,7 @@ function createsniperbotjpentry(e) {
 			currententries++
 			console.log(sniperbotsjp[e].bet)
 			updatejpdisplay()
-	}, randomnumber(5000)+8000)
+	}, randomnumber(10000)+8000)
 }
 function createlowballerbotjpentry(e) {
 	window.setTimeout(function(){
@@ -81,63 +81,49 @@ function createlowballerbotjpentry(e) {
 			currententries++
 			console.log(lowballerbotsjp[e].bet)
 			updatejpdisplay()
-		}, randomnumber(20000))
+		}, randomnumber(18000))
 }
 targetbet = 0;
 targetcubes = []
+function getuseraverageitemswithbets() {
+	updateusertotalbet()
+	return (getplayerinventoryvalue() + user.bet)/(user.inventory.length + user.betitems.length || 1)+50
+}
 function getlowballerbotbet() {
-	targetbet = randomnumber(14)+1
-	targetcubes = allcubes.filter(cube => cube.price <= ((getaverageinventoryvalue()+getjptotal())/targetbet)*0.8)
-	targetcubes = targetcubes.filter(cube => cube.price >= ((getaverageinventoryvalue()+getjptotal())/targetbet)*0.5)
-	if (targetcubes.length < targetbet) {
-		if(targetcubes.length == 0) {
-			targetcubes.push({cube: {name: "Bot Cube", rarity: orange, flavortext: "A cube conjured by a bot in order for them to bet, they had nothing that they could use to match their playstyle.", price: Math.ceil((getjptotal()/targetbet))+20, image: "sprites/cube16x16temp.png"}, prefix: false, suffix: false, cubeid: cubeid+1})
-			return targetcubes
-		} else {
-			return targetcubes
-		}
-	} else {
-		while (targetcubes.length >= targetbet) {
-			targetcubes.splice(randomarray(targetcubes.length), 1)
-		}
-		return targetcubes
+	targetbet = randomnumber(14)+8
+	targetcubes = allcubes.filter(cube => cube.price <= (getuseraverageitemswithbets()*0.5))
+	targetcubes = targetcubes.filter(cube => cube.price >= (getuseraverageitemswithbets()*0.3))
+	if (targetcubes.length <= 0) {
+		targetcubes.push(user.inventory[randomarray(user.inventory.length)])
 	}
+	while (targetcubes.length > randomnumber(5)) {
+		targetcubes.splice(randomarray(targetcubes.length), 1)
+	}
+	return targetcubes
 }
 function getfairbotbet() {
-	targetbet = randomnumber(6)+1
-	targetcubes = allcubes.filter(cube => cube.price <= ((getaverageinventoryvalue()+getjptotal())/targetbet)*1.2)
-	targetcubes = targetcubes.filter(cube => cube.price >= ((getaverageinventoryvalue()+getjptotal())/targetbet)*0.8)
-	if (targetcubes.length < targetbet) {
-		if(targetcubes.length == 0) {
-			targetcubes.push({cube: {name: "Bot Cube", rarity: orange, flavortext: "A cube conjured by a bot in order for them to bet, they had nothing that they could use to match their playstyle.", price: Math.ceil((getjptotal()/targetbet))+50, image: "sprites/cube16x16temp.png"}, prefix: false, suffix: false, cubeid: cubeid+1})
-			return targetcubes
-		} else {
-			return targetcubes
-		}
-	} else {
-		while (targetcubes.length >= targetbet) {
-			targetcubes.splice(randomarray(targetcubes.length), 1)
-		}
-		return targetcubes
+	targetbet = randomnumber(6)+5
+	targetcubes = allcubes.filter(cube => cube.price <= (getuseraverageitemswithbets()*1.2))
+	targetcubes = targetcubes.filter(cube => cube.price >= (getuseraverageitemswithbets()*0.8))
+	if (targetcubes.length <= 0) {
+		targetcubes.push(user.inventory[randomarray(user.inventory.length)])
 	}
+	while (targetcubes.length > randomnumber(2)) {
+		targetcubes.splice(randomarray(targetcubes.length), 1)
+	}
+	return targetcubes
 }
 function getsniperbotbet() {
-	targetbet = randomnumber(2)+1
-	targetcubes = allcubes.filter(cube => cube.price <= ((getaverageinventoryvalue()+getjptotal())/targetbet)*1.8)
-	targetcubes = targetcubes.filter(cube => cube.price >= ((getaverageinventoryvalue()+getjptotal())/targetbet)*1.4)
-	if (targetcubes.length < targetbet) {
-		if(targetcubes.length == 0) {
-			targetcubes.push({cube: {name: "Bot Cube", rarity: orange, flavortext: "A cube conjured by a bot in order for them to bet, they had nothing that they could use to match their playstyle.", price: Math.ceil((getjptotal()/targetbet))+100, image: "sprites/cube16x16temp.png"}, prefix: false, suffix: false, cubeid: cubeid+1})
-			return targetcubes
-		} else {
-			return targetcubes
-		}
-	} else {
-		while (targetcubes.length >= targetbet) {
-			targetcubes.splice(randomarray(targetcubes.length), 1)
-		}
-		return targetcubes
+	targetbet = randomnumber(2)+3
+	targetcubes = allcubes.filter(cube => cube.price <= (getuseraverageitemswithbets()*2.2))
+	targetcubes = targetcubes.filter(cube => cube.price >= (getuseraverageitemswithbets()*1.3))
+	if (targetcubes.length <= 0) {
+		targetcubes.push(user.inventory[randomarray(user.inventory.length)])
 	}
+	while (targetcubes.length > randomnumber(4)) {
+		targetcubes.splice(randomarray(targetcubes.length), 1)
+	}
+	return targetcubes
 }
 jptotal = 0;
 jpgoing = false;
