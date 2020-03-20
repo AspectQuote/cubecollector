@@ -53,7 +53,7 @@ function createfairbotjpentry(e) {
 			currententries++
 			console.log(fairbotsjp[e].bet)
 			updatejpdisplay()
-		}, randomnumber(12000))
+	}, randomnumber(12000))
 }
 function createsniperbotjpentry(e) {
 	window.setTimeout(function(){
@@ -85,42 +85,58 @@ function createlowballerbotjpentry(e) {
 }
 targetbet = 0;
 targetcubes = []
+betcubes = []
 function getuseraverageitemswithbets() {
 	updateusertotalbet()
 	return (getplayerinventoryvalue() + user.bet)/(user.inventory.length + user.betitems.length || 1)+50
 }
 function getlowballerbotbet() {
-	targetbet = randomnumber(14)+8
-	targetcubes = allcubes.filter(cube => cube.price <= (getuseraverageitemswithbets()*0.5))
-	targetcubes = targetcubes.filter(cube => cube.price >= (getuseraverageitemswithbets()*0.3))
-	if (targetcubes.length <= 0) {
-		targetcubes.push(user.inventory[randomarray(user.inventory.length)])
+	targetbet = randomnumber((user.betitems.length || 3))
+	targetcubes = allcubes.filter(cube => cube.price <= (getaverageuserbet()*0.5))
+	targetcubes = targetcubes.filter(cube => cube.price >= (getaverageuserbet()*0.1))
+	betcubes = []
+	for(i=0; i < targetcubes.length; i++) {
+		betcubes.push(targetcubes[randomarray(targetcubes.length)])
 	}
-	while (targetcubes.length > randomnumber(5)) {
+	targetcubes = betcubes
+	if (user.betitems.length <= 0) {
+		for (i=0; i < 2; i++){targetcubes.push(user.inventory[randomarray(user.inventory.length)])}
+	}
+	while (targetcubes.length > targetbet) {
 		targetcubes.splice(randomarray(targetcubes.length), 1)
 	}
 	return targetcubes
 }
 function getfairbotbet() {
-	targetbet = randomnumber(6)+5
-	targetcubes = allcubes.filter(cube => cube.price <= (getuseraverageitemswithbets()*1.2))
-	targetcubes = targetcubes.filter(cube => cube.price >= (getuseraverageitemswithbets()*0.8))
-	if (targetcubes.length <= 0) {
-		targetcubes.push(user.inventory[randomarray(user.inventory.length)])
+	targetbet = randomnumber((user.betitems.length || 3))
+	targetcubes = allcubes.filter(cube => cube.price <= (getaverageuserbet()*1.2))
+	targetcubes = targetcubes.filter(cube => cube.price >= (getaverageuserbet()*0.8))
+	betcubes = []
+	for(i=0; i < targetcubes.length; i++) {
+		betcubes.push(targetcubes[randomarray(targetcubes.length)])
 	}
-	while (targetcubes.length > randomnumber(2)) {
+	targetcubes = betcubes
+	if (user.betitems.length <= 0) {
+		for (i=0; i < 2; i++){targetcubes.push(user.inventory[randomarray(user.inventory.length)])}
+	}
+	while (targetcubes.length > targetbet) {
 		targetcubes.splice(randomarray(targetcubes.length), 1)
 	}
 	return targetcubes
 }
 function getsniperbotbet() {
-	targetbet = randomnumber(2)+3
-	targetcubes = allcubes.filter(cube => cube.price <= (getuseraverageitemswithbets()*2.2))
-	targetcubes = targetcubes.filter(cube => cube.price >= (getuseraverageitemswithbets()*1.3))
-	if (targetcubes.length <= 0) {
-		targetcubes.push(user.inventory[randomarray(user.inventory.length)])
+	targetbet = randomnumber((user.betitems.length || 1))+3
+	targetcubes = allcubes.filter(cube => cube.price <= (getaverageuserbet()*1.2))
+	targetcubes = targetcubes.filter(cube => cube.price >= (getaverageuserbet()*0.8))
+	betcubes = []
+	for(i=0; i < targetcubes.length; i++) {
+		betcubes.push(targetcubes[randomarray(targetcubes.length)])
 	}
-	while (targetcubes.length > randomnumber(4)) {
+	targetcubes = betcubes
+	if (user.betitems.length <= 0) {
+		for (i=0; i < 2; i++){targetcubes.push(user.inventory[randomarray(user.inventory.length)])}
+	}
+	while (targetcubes.length > targetbet) {
 		targetcubes.splice(randomarray(targetcubes.length), 1)
 	}
 	return targetcubes

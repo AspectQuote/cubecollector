@@ -50,7 +50,7 @@ function updatetabdisplay(tab) {
       $("#unboxingwrapper").hide()
       $("#jpwrapper").hide()
       updateinventorydisplay(false)
-      $("#currentusername").html(user.name)
+      $("#currentusername").html("Username: "+user.name)
       break;
     case "jackpot":
       currenttab = "jackpot"

@@ -100,15 +100,19 @@
 			Trade Ups are Coming Soon!
 		</div>
 		<div id="settingswrapper">
-			<div id="usernamesetting">
-				<label for="usernameinput">Change Username:</label>
-				<input type="text" id="usernameinput"><br/>
-				<div id="currentusername"></div>
+			<div id="settingsheader" style="text-align: center; font-size: x-large; padding-top: 20px; padding-bottom: 30px;">Settings</div>
+			<div id="usernamesetting" class="settingsoptions">
+				<div>
+					<label for="usernameinput">Change Username:</label>
+					<input type="text" id="usernameinput" placeholder="press ENTER to confirm"><br/>
+				</div>
+				<div id="currentusername" style="float: right;">Username: </div>
 			</div>
-			<div id="sellbelowsetting">
-				<label for="sellbelowinput">Sell Below Price (in cents):</label>
-				<input type="text" id="sellbelowinput"><br/>
-				<div id="currentsellbelowprice"></div>
+			<div id="sellbelowsetting" class="settingsoptions">
+				<div>
+					<label for="sellbelowinput">Sell Below Price:</label>
+					<input type="text" id="sellbelowinput" placeholder="enter price in cents" title="press ENTER to confirm">
+				</div>
 			</div>
 		</div>
 		<div id="jpwrapper">
