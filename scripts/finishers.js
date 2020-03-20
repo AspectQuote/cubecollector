@@ -63,7 +63,7 @@ function updateboxesdisplay() {
   $("#boxes").html('')
   $("#boxes").unbind()
   for (var i = 0; i < allboxes.length; i++) {
-    $("#boxes").append("<div class='boxiconwrapper' style='display: inline-block; position: relative;'><img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'><div class='itempriceoverlay' style='color: white;'>$"+(allboxes[i].price/100).toLocaleString()+", "+user.boxes[i].amount+" owned</div></div>")
+    $("#boxes").append("<div class='boxiconwrapper' style='display: inline-block; position: relative;'><img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'><div class='itempriceoverlay' style='color: white;'>$"+(allboxes[i].price/100).toLocaleString()+", "+(user.boxes[i].amount || 0)+" owned</div></div>")
     createclickablebox(i)
   }
   $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
