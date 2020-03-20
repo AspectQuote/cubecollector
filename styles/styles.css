@@ -1,5 +1,9 @@
+@font-face {
+  font-family: karma-future;
+  src: url(../fonts/karma-suture.woff);
+}
 * {
-font-family: 'Sen', sans-serif;
+font-family: karma-future;
 image-rendering: pixelated;
 user-select: none;
 }
@@ -258,9 +262,11 @@ text-align: center;
 height: 100%;
 }
 .boxicons {
-padding: 10px;
 width: 96px;
 transition: 0.75s;
+}
+.boxiconwrapper {
+margin: 10px;
 }
 .boxicons:hover {
 cursor: pointer;
@@ -313,6 +319,7 @@ padding: 5px;
 position: relative;
 color: white;
 }
+
 #getmoneybutton {
 color: white;
 float: right;
@@ -439,9 +446,6 @@ background-image: linear-gradient(20deg, rgba(153, 6, 104, 0.5), rgba(153, 6, 10
 #jpentry8 {
 background-image: linear-gradient(20deg, rgba(153, 6, 104, 0.5), rgba(153, 6, 104, 1));
 }
-#usernamesetting {
-  display: inline-block;
-}
 .homealert {
   color: #b5b333;
 }
@@ -456,4 +460,16 @@ background-image: linear-gradient(20deg, rgba(153, 6, 104, 0.5), rgba(153, 6, 10
 }
 #inventorysorthl:hover {
   cursor: pointer;
+}
+.settingsoptions {
+width: 98%;
+border: 1px solid #1F1F1F;
+border-radius: 5px;
+display: flex;
+padding: 1%;
+justify-content: space-between;
+transition: 0.5s;
+}
+.settingsoptions:hover {
+background-image: linear-gradient(90deg, rgba(169, 68, 0, 1), rgba(169, 68, 0, 0));
 }

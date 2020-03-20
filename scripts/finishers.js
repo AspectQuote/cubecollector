@@ -44,9 +44,9 @@ function createclickablesellable(e, jackpotmode){
 function updateinventorydisplay(jackpotmode) {
   $("#inventory").html("")
   for(i=0; i < user.inventory.length; i++) {
-     $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(1px 1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div></div>")
+	 $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; border-radius: 3px; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(1px 1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div></div>")
 	 createclickablesellable(i , jackpotmode)
-  }
+     }
   $("#inventoryslotsfilled").html(user.inventory.length)
   $("#inventoryvalue").html("Inventory Value: $"+(getplayerinventoryvalue()/100).toLocaleString())
 }
@@ -59,13 +59,21 @@ function getplayerinventoryvalue(){
 	return val
 }
 updatemoneydisplay()
-for (var i = 0; i < allboxes.length; i++) {
-  $("#boxes").append("<img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'>")
-  createclickablebox(i)
+function updateboxesdisplay() {
+  $("#boxes").html('')
+  $("#boxes").unbind()
+  for (var i = 0; i < allboxes.length; i++) {
+    $("#boxes").append("<div class='boxiconwrapper' style='display: inline-block; position: relative;'><img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'><div class='itempriceoverlay' style='color: white;'>$"+(allboxes[i].price/100).toLocaleString()+", "+user.boxes[i].amount+" owned</div></div>")
+    createclickablebox(i)
+  }
+  $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
+  $("#box"+allboxes.indexOf(selectedbox)).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
 }
 $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
+updatetabdisplay("home")
 checklocalstorage()
 updatemoneydisplay()
 updateinventorydisplay()
+updateboxesdisplay()
 updatetabdisplay("home")
 $("#inventoryselling").html("Sell Below $" + (user.sellbelowprice/100).toLocaleString())

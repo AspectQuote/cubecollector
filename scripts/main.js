@@ -20,6 +20,7 @@ $("#casebuybutton").click(function(){
 		user.boxes[selectedbox.boxid].amount += 1
 		user.money -= selectedbox.price;
 		updatemoneydisplay()
+		updateboxesdisplay()
 		$("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
 	}
 })
@@ -27,6 +28,7 @@ $("#caseopenbutton").click(function(){
 	if (user.boxes[selectedbox.boxid].amount >= 1 && spincooldown == false && user.inventory.length < 200) {
 		user.boxes[selectedbox.boxid].amount -= 1
 		unbox(selectedbox)
+		updateboxesdisplay()
 	} else {
 		console.log("ERROR! USER DOES NOT HAVE THE APPROPRIATE BOXES")
 	}

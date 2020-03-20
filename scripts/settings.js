@@ -3,7 +3,7 @@ $("#usernameinput").on('keypress',function(e) {
     if(e.which == 13 && userinjp == false) {
         user.name = getusernameinput()
         savegame()
-        $("#currentusername").html("username:" + user.name)
+        $("#currentusername").html("Username: " + user.name)
     }
 });
 getsellbelowinput = function(){return document.getElementById('sellbelowinput').value}

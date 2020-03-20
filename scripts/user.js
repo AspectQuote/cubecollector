@@ -11,6 +11,10 @@ function constructplayersboxes(boxes) {
 function getaverageinventoryvalue() {
 	return getplayerinventoryvalue()/user.inventory.length
 }
+function getaverageuserbet() {
+	updateusertotalbet()
+	return (user.bet/user.betitems.length) || getaverageinventoryvalue()
+}
 function sortinventory(whichway) {
 	switch (whichway) {
 		case "hl":
