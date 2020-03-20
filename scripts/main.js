@@ -74,7 +74,7 @@ function loadsave(){
 	user = JSON.parse(localStorage.getItem("user"))
 	if (user.boxes.length != allboxes.length) {
 		while (user.boxes.length < allboxes.length) {
-			user.boxes.push(allboxes[user.boxes.length-1])
+			user.boxes.push({box: allboxes[user.boxes.length-1], amount: 0})
 		}
 	}
 	if (user.sellbelowprice == undefined) { user.sellbelowprice = 100;}
