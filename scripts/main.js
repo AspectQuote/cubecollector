@@ -72,6 +72,11 @@ function loadsave(){
 	user.boxes = localStorage.getItem("userboxes")
 	user.inventory = localStorage.getItem("userinventory") */
 	user = JSON.parse(localStorage.getItem("user"))
+	if (user.boxes.length != allboxes.length) {
+		while (user.boxes.length < allboxes.length) {
+			user.boxes.push(allboxes[user.boxes.length-1])
+		}
+	}
 	if (user.sellbelowprice == undefined) { user.sellbelowprice = 100;}
 	if (user.name == undefined) { user.name = "Player";}
 	for (var i = 0; i < user.inventory.length; i++) {
