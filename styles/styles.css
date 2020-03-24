@@ -473,3 +473,20 @@ transition: 0.5s;
 .settingsoptions:hover {
 background-image: linear-gradient(90deg, rgba(169, 68, 0, 1), rgba(169, 68, 0, 0));
 }
+.tradeupslots {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 3px;
+  height: 90px;
+  width: 90px;
+  background-image: linear-gradient(135deg, rgba(34, 34, 34, 1), rgba(34, 34, 34, 0.5));
+  position: relative;
+  transition: 1.75s;
+}
+
+.tradeupslotinfos {
+position: absolute;
+top: 0;
+left: 0;
+font-size: x-small;
+}
