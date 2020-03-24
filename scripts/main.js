@@ -12,6 +12,7 @@ purple = "purple"
 orange = "orange"
 red = "red"
 black = "black"
+yellow = "yellow"
 moneyword = ''
 fancymoneyword = ''
 
@@ -89,7 +90,6 @@ function loadsave(){
 	updateinventorydisplay()
 }
 tryforjackpot = window.setInterval(function(){
-	console.log("trying for jackpot...")
 	if (randomnumber(20) == 1 && jpgoing == false) { // a 5% chance for the bots to start a JP every 3 seconds, an average of 1 minute between jps
 		startjackpot(8)
 	}

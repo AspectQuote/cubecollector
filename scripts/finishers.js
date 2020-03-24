@@ -10,7 +10,7 @@ function createclickablebox(e){
     $("#box"+e).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
   })
 }
-function createclickablesellable(e, jackpotmode){
+function createclickablesellable(e, jackpotmode, tradeupmode){
 	$("#inventoryslot"+e).unbind()
 	$("#inventoryslot"+e).dblclick(function(){
     user.money += user.inventory[e].cube.price
@@ -26,9 +26,8 @@ function createclickablesellable(e, jackpotmode){
 	$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(user.inventory[e].cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(user.inventory[e].cube.rarity)+")")
   })
   if (jackpotmode == true || currenttab == "jackpot") {
-    console.log("jackpot mode is on for "+user.inventory.length+" cubes!")
     $("#inventoryslot"+e).unbind()
-    $("#inventoryslot"+e).dblclick(function(){
+    $("#inventoryslot"+e).click(function(){
       if (jpgoing == false && jpspinning == false) {
         startjackpot(8)
       }
@@ -40,12 +39,20 @@ function createclickablesellable(e, jackpotmode){
       }
     })
   }
+  if (tradeupmode == true || currenttab == "tradeups") {
+    $("#inventoryslot"+e).unbind()
+    $("#inventoryslot"+e).click(function(){
+      if (itemscounttradeup < 20 && user.inventory[e].cube.rarity != yellow) {
+	       deposititemfortradeup(e)
+      }
+    })
+  }
 }
-function updateinventorydisplay(jackpotmode) {
+function updateinventorydisplay(jackpotmode, tradeupmode) {
   $("#inventory").html("")
   for(i=0; i < user.inventory.length; i++) {
-	 $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; border-radius: 3px; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(1px 1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div></div>")
-	 createclickablesellable(i , jackpotmode)
+	 $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; border-radius: 3px; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(2px 2px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div></div>")
+	 createclickablesellable(i , jackpotmode, tradeupmode)
      }
   $("#inventoryslotsfilled").html(user.inventory.length)
   $("#inventoryvalue").html("Inventory Value: $"+(getplayerinventoryvalue()/100).toLocaleString())
@@ -63,7 +70,7 @@ function updateboxesdisplay() {
   $("#boxes").html('')
   $("#boxes").unbind()
   for (var i = 0; i < allboxes.length; i++) {
-    $("#boxes").append("<div class='boxiconwrapper' style='display: inline-block; position: relative;'><img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'><div class='itempriceoverlay' style='color: white;'>$"+(allboxes[i].price/100).toLocaleString()+", "+(user.boxes[i].amount || 0)+" owned</div></div>")
+    $("#boxes").append("<div class='boxiconwrapper' style='display: inline-block; position: relative;'><img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'><div class='itempriceoverlay' style='color: white;'>$"+(allboxes[i].price/100).toLocaleString()+", "+user.boxes[i].amount+" owned</div></div>")
     createclickablebox(i)
   }
   $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")

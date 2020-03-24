@@ -1,10 +1,10 @@
-function Cube(name, rarity, flavortext, price, image) {
+function Cube(name, rarity, flavortext, price, image, box) {
 	this.name = name
 	this.rarity = rarity
 	this.flavortext = flavortext
 	this.price = price
 	this.image = image
-
+	this.box = box
 	this.cubeid = cubeid
 	cubeid++
 	allcubes.push(this)
@@ -127,7 +127,7 @@ brimstonecube = new Cube("Brimstone Cube", black, "From the fiery depths of hell
 holygrailcube = new Cube("Holy Grail", black, "What? You thought the holy grail was an actual grail? It's a cup in the shape of a cube filled with holy water!", 129742, "sprites/superstitiousbox/holywatergrail.png")
 starrynightcube = new Cube("Starry Night Cube", red, "A small piece of space inside of a cube", 9812, "sprites/superstitiousbox/starrynightcube.png")
 
-// Home box
+// Home box, 53 cubes
 brownbookcube                = new Cube("Brown Book Cube", light_green, "It's a completely blank, tiny book.", 10, "sprites/homebox/brownbookcube.png")
 greenbookcube                = new Cube("Green Book Cube", light_green, "It's a completely blank, tiny book.", 5, "sprites/homebox/greenbookcube.png")
 redbookcube  		         = new Cube("Red Book Cube", light_green, "It's a completely blank, tiny book.", 7, "sprites/homebox/redbookcube.png")
@@ -181,5 +181,42 @@ ovencube                     = new Cube("Oven Cube", red, "Cooks tiny bacon!", 5
 itcries                      = new Cube("It Cries", black, "A small, crying ghost-thing..?", 102933, "sprites/homebox/itcriescube.png")
 gildedcube                   = new Cube("Gilded Cube", black, "A highly stylized ivory decorative cube.", 132723, "sprites/homebox/gildedcube.png")
 tvcube                       = new Cube("TVCube", black, "A small, very high quality TV! doesnt even require a cable subscription to use!", 139372, "sprites/homebox/TVcube.png")
-
+// game box
+geometrydashcube= new Cube("Geometry Dash Cube", light_green, "A truly OG timing-based progression game, geometry dash blends interesting mechanics with consistent and challenging platforming", 581, "sprites/gamebox/geometrydashcube.png")
+robloxcube= new Cube("Roblox Cube", light_green, "BE ANYTHING, BUILD ANYTHING! (but you have to pay for both)", 561, "sprites/gamebox/robloxcube.png")
+keyboardcube= new Cube("Keyboard Cube", green, "A cube covered in keyboard keys... but there is no escape key.", 920, "sprites/gamebox/keyboardcube.png")
+devildaggerscube= new Cube("Devil Daggers Cube", green, "A game about optimization and skill, Devil Daggers presents its players with a weak character and very strong enemies. (not to mention the competitive aspect of having a scoreboard for everyone to see.)", 1174, "sprites/gamebox/devildaggerscube.png")
+controllercube= new Cube("Controller Cube", green, "It's a classic Xbox controller", 923, "sprites/gamebox/controllercube.png")
+inspirationi= new Cube("Inspiration I", black, "The front-end developer of the games that inspired this one, go check him out! <br/> Banned", 324012, "sprites/gamebox/bannedcube.png")
+inspirationii= new Cube("Inspiration II", black, "The back end developer of one of the games that inspired this one, go check him out! <br/> Roflzilla", 324012, "sprites/gamebox/roflzillacube.png")
+grassblockcube= new Cube("Minecraft Cube", red, "One of the greatest masterpieces of gaming ever, this game has managed to survive more than one decade of cultural shifts with its insane replayability.", 79282, "sprites/gamebox/grassblockcube.png")
+asepritecube = new Cube("Aseprite Cube", blue, "A great program I use to make the cubes in this game!", 3012, "sprites/gamebox/asepritecube.png")
+battleblockcube = new Cube("Battle Block Theatre Cube", blue, "One of the best games to play with friends", 3692, "sprites/gamebox/bbcube.png")
+enterthegungeoncube = new Cube("Enter the Gungeon Cube", blue, "Enter the Gungeon is one of my personal favorite roguelikes, with a high skill ceiling, tight gameplay, and satisfying achievements.", 3976, "sprites/gamebox/etgcube.png")
+halflifecube = new Cube("Half Life Cube", black, "Half life is one of Valve's masterpieces, the pinnacle of a great puzzle-solving game with interesting mechanics and engaging story elements... but there isn't a third one.", 400211, "sprites/gamebox/hlcube.png")
+hollowknightcube = new Cube("Hollow Knight Cube", black, "Hollow Knight is the breakout success from Team Cherry; the game was on kickstarter, exceeding its goal very quickly. One of the best metroidvanias out there, it truly defines the genre.", 229895, "sprites/gamebox/hollowknightcube.png")
+theendisnighcube = new Cube("The End Is Nigh Cube", purple, "A hard as nails platformer, the end is nigh is another game by the creator of Super Meat Boy; so you can bet this game has tight controls and a strong sense of personality", 5482, "sprites/gamebox/teincube.png")
+oneshotcube = new Cube("OneShot Cube", purple, "A relatively short puzzle game, this narrative masterpiece takes the norms of a puzzle game and changes it by making you god.", 3353, "sprites/gamebox/oneshotcube.png")
+portalcube = new Cube("Portal Cube", red, "Another of Valve's great works, portal is a puzzle solving game with tons of personality, and mind-bending puzzles.", 69696, "sprites/gamebox/portalcube.png")
+thebindingofisaaccube = new Cube("The Binding Of Isaac Cube", black, "One of the best roguelikes out there, The Binding of Isaac juxtaposes the innocence of a child with the crushing reality of a hard upbringing, and an overarching narrative of religion.", 251922, "sprites/gamebox/tboicube.png")
+teamfortresstwocube = new Cube("Team Fortress 2 Cube", black, "hands-down the best class based shooter of all time, TF2 mixes personality with super strong gameplay. Not to mention the community behind it; being one of the strongest for a game that is more than 10 years old!", 449129, "sprites/gamebox/tf2cube.png")
+starboundcube = new Cube("Starbound Cube", orange, "I would say that this game is one of my all-time favorites, HOWEVER, it is my all-time favorite disappointment. This game released with lots of bugs, shitty gameplay, and a frustrating to follow storyline. The base game is actual ass. BUUUUT the mods for this game make it so much fun, so try it", 30029, "sprites/gamebox/sboundcube.png")
+undertalecube = new Cube("Undertale Cube", black, "A groundbreaking roleplaying game with a shit ton of personality and content, this game defines the idea of a perfect lifelong work.", 379172, "sprites/gamebox/undertalecube.png")
+hyperlightdriftercube = new Cube("Hyper Light Drifter Cube", orange, "At first confusing, this game allows the player to go on a journey of difficult to master, skill-based movement and combat. The learning curve is kinda steep though.", 45922, "sprites/gamebox/hldcube.png")
+tabscube = new Cube("T.A.B.S. Cube", orange, "Totally Accurate Battle Simulator is a game that popularized the physics based battle genre that spawned or inspired other games like Besiege and Stick Fight: The Game. Its basic premise is that you are a commander that commands an army of physics based warriors. The encounters are funny, and the physics make its hilarity a cornerstone of strategical comedy. <br/> suggested by Epitaxia", 35723, "sprites/gamebox/tabscube.png")
+halocube = new Cube("Halo Cube", red, "Halo is the Xbox's opening title. Developed by microsoft, Halo has been a huge part of first person shooter games, probably up there with DOOM. <br/> suggested by Roflzilla", 59832, "sprites/gamebox/halocube.png")
+gmodcube = new Cube("Garry's Mod Cube", green, "Garry's Mod is a game (which is actually a mod, big surprise) that has cemented iteself as an almost perfect sandbox game. This game has spawned many games, gamemodes, and absolutely hilarious animations. (anyone out there know kitty0706?) <br/> suggested by ForrestGump", 1283, "sprites/gamebox/gmodcube.png")
 //= new Cube("name", rarity, "flavortext", price, "sprites/.png")
+// gold Cubes
+adamantiumcube = new Cube("Adamantium Cube", yellow, "A small piece of the rarest metal on earth.", 1539843, "sprites/golds/adamantiumcube.png")
+bluenebulacube = new Cube("Hydrogen Nebula Cube", yellow, "The hydrogen nebula, masterfully recreated in a glass cube", 1349273, "sprites/golds/bluenebulacube.png")
+cakecube = new Cube("Cake Cube", yellow, "A nice, delicious, tiny cake", 1294720, "sprites/golds/cakecube.png")
+goldendicecube = new Cube("Golden D6", yellow, "Garunteed sixes.", 1784921, "sprites/golds/goldendice.png")
+goldmushroomcube = new Cube("Gold Mushroom", yellow, "A highly sought after prize of fungi", 1596390, "sprites/golds/goldmushroomcube.png")
+goldophichuscube = new Cube("Golden Ophichus", yellow, "Ophichus' lament", 976590, "sprites/golds/goldophichuscube.png")
+illuminaticube = new Cube("Illuminati Cube", yellow, "Does this cube even exist?", 1696969, "sprites/golds/illuminaticube.png")
+smashbroscube = new Cube("Super Smash Bros. Cube", yellow, "Super Smash Bros. is the ultimate fighting game, using everyone's favorite characters in an all-out battle against evil.. and your friends!", 1897122, "sprites/golds/smashbroscube.png")
+smwcube = new Cube("Super Mario World Cube", yellow, "Super Mario World is the best mario game. Hands down.", 1759275, "sprites/golds/smwcube.png")
+spherecube = new Cube("A Sphere?", yellow, "...", 1739573, "sprites/golds/spherecube.png")
+truereliccube = new Cube("The True Relic", yellow, "The real relic, washed of all its sins", 1882372, "sprites/golds/truerelic.png")
+rubycube = new Cube("Ruby Cube", yellow, "like red diamonds!", 887132, "sprites/golds/rubycube.png")

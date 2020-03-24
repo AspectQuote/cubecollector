@@ -10,7 +10,7 @@ function startjackpot(botamount) {
 	jpgoing = true
 	startjpcountdown = setInterval(jpcountdown, 1000)
 	for (i=0; i < botamount; i++) {
-		botstoenterjp.push(normalbots[randomarray(normalbots.length)])
+		botstoenterjp.push(allbots[randomarray(allbots.length)])
 	}
 	botstoenterjp = removeDuplicates(botstoenterjp)
 	for (var i = 0; i < botstoenterjp.length; i++) {
@@ -22,11 +22,11 @@ function startjackpot(botamount) {
 		botstoenterjp.pop()
 	}
 	sniperbotsjp = botstoenterjp.filter(bot => bot.playstyle == "sniper")
-	console.log(sniperbotsjp)
+	//console.log(sniperbotsjp)
 	fairbotsjp = botstoenterjp.filter(bot => bot.playstyle == "fair")
-	console.log(fairbotsjp)
+	//console.log(fairbotsjp)
 	lowballerbotsjp = botstoenterjp.filter(bot => bot.playstyle == "lowballer")
-	console.log(lowballerbotsjp)
+	//console.log(lowballerbotsjp)
 
 	for (i=0; i < fairbotsjp.length; i++) { // the fair bots entering the jp at a random time throughout the beginning of the jackpot
 		createfairbotjpentry(i)
@@ -43,7 +43,7 @@ function removeDuplicates(array) {
 };
 function createfairbotjpentry(e) {
 	window.setTimeout(function(){
-			console.log(fairbotsjp[e].name)
+			//console.log(fairbotsjp[e].name)
 			fairbotsjp[e].betitems = getfairbotbet()
 			formatbotitems(fairbotsjp[e])
 			fairbotsjp[e].updatebet()
@@ -51,13 +51,13 @@ function createfairbotjpentry(e) {
 			botsinjp.push(fairbotsjp[e])
 			addtojpreel(botsinjp.indexOf(fairbotsjp[e]))
 			currententries++
-			console.log(fairbotsjp[e].bet)
+			//console.log(fairbotsjp[e].bet)
 			updatejpdisplay()
 	}, randomnumber(12000))
 }
 function createsniperbotjpentry(e) {
 	window.setTimeout(function(){
-			console.log(sniperbotsjp[e].name)
+			//console.log(sniperbotsjp[e].name)
 			sniperbotsjp[e].betitems = getsniperbotbet()
 			formatbotitems(sniperbotsjp[e])
 			sniperbotsjp[e].updatebet()
@@ -65,13 +65,13 @@ function createsniperbotjpentry(e) {
 			botsinjp.push(sniperbotsjp[e])
 			addtojpreel(botsinjp.indexOf(sniperbotsjp[e]))
 			currententries++
-			console.log(sniperbotsjp[e].bet)
+			//console.log(sniperbotsjp[e].bet)
 			updatejpdisplay()
 	}, randomnumber(10000)+8000)
 }
 function createlowballerbotjpentry(e) {
 	window.setTimeout(function(){
-			console.log(lowballerbotsjp[e].name)
+			//console.log(lowballerbotsjp[e].name)
 			lowballerbotsjp[e].betitems = getlowballerbotbet()
 			formatbotitems(lowballerbotsjp[e])
 			lowballerbotsjp[e].updatebet()
@@ -79,7 +79,7 @@ function createlowballerbotjpentry(e) {
 			botsinjp.push(lowballerbotsjp[e])
 			addtojpreel(botsinjp.indexOf(lowballerbotsjp[e]))
 			currententries++
-			console.log(lowballerbotsjp[e].bet)
+			//console.log(lowballerbotsjp[e].bet)
 			updatejpdisplay()
 		}, randomnumber(18000))
 }
@@ -149,7 +149,7 @@ function getjptotal() {
 function updatejpdisplay() {
 	$("#individualjpentries").html('')
 	for (var i = 0; i < botsinjp.length; i++) {
-		console.log("updating jackpot display for entry #"+i)
+		//console.log("updating jackpot display for entry #"+i)
 		$("#individualjpentries").append("<div class='individualjpentry' id='individualjpentry"+i+"'>"+botsinjp[i].name+": "+Math.floor((botsinjp[i].bet/getjptotal())*10000)/100+"% with $"+(botsinjp[i].bet/100).toLocaleString()+" Items: "+getbotbetitemsdisplay(i)+"</div>")
 		$("#jpentry"+i).css("width", $("#jpentries").width()*(botsinjp[i].bet/getjptotal())+"px")
 		$("#jpentry"+i).html(botsinjp[i].name+" ($"+(botsinjp[i].bet/100).toLocaleString()+"),<div id='jpentrypercent"+i+"' style='text-align: center;'> with "+Math.floor((botsinjp[i].bet/getjptotal())*10000)/100+"% chance")
@@ -199,7 +199,7 @@ userinjp = false
 
 function userenterjp(item) {
 	if (userinjp == true) {
-		console.log(item)
+		//console.log(item)
 		user.betitems.push(item)
 		jptotal += item.cube.price
 		updateusertotalbet()
@@ -215,7 +215,7 @@ function userenterjp(item) {
 		botsinjp.push(user)
 		addtojpreel(botsinjp.indexOf(user))
 		currententries++
-		console.log(user.bet)
+		//console.log(user.bet)
 		updatejpdisplay()
 	}
 }
@@ -229,7 +229,7 @@ jpspinning = false
 jpcountdown = function() {
 	jpspinning = false
 	timeleft--
-	console.log(timeleft)
+	//console.log(timeleft)
 	$("#jpname").html("<h4>Jackpot ("+timeleft+"s left)</h4>")
 	if (timeleft <= 0) {
 		clearInterval(startjpcountdown)
@@ -278,10 +278,10 @@ function spinthejp(ticket) {
 			updateinventorydisplay()
 			savegame()
 		}
-		jpspinning = false
 		$("#lastjpwinnerinfotext").html(getjpwinner().name+ " won "+(getjptotal()/100).toLocaleString()+"$ with "+(getjpwinner().bet/100).toLocaleString()+"$ with a "+Math.floor((getjpwinner().bet/getjptotal())*10000)/100+"% chance on ticket "+jpwinningticket)
 	}, 6000)
 	window.setTimeout(function(){
+		jpspinning = false
 		resetjp()
 		resetallbotbets()
 		resetallbotitems()

@@ -39,7 +39,9 @@ function updatetabdisplay(tab) {
       $("#unboxingwrapper").hide()
       $("#settingswrapper").hide()
       $("#jpwrapper").hide()
-      updateinventorydisplay(false)
+      updateinventorydisplay(false, true)
+      updatetradeupsinputdisplay()
+      getrandomtradeuppropaganda()
         break;
     case "settings":
       currenttab = "settings"
