@@ -52,11 +52,13 @@ function unbox(box){
 		}
 		if (ticket <= 1000 && ticket >= 996){ // black
 			console.log('Cube Pull is black')
+			user.stats.blacksunboxed++
 			pull.cube = box.cubes.filter(cube => cube.rarity == black)[randomarray(box.cubes.filter(cube => cube.rarity == black).length)]
 			console.log(pull.cube.name)
 		}
 		console.log(ticket)
 		reelthecasein(ticket)
+		user.stats.unboxes++
 	} else {
 		if (spincooldown == true) {
 			console.log("ERROR! REEL IS SPINNING!")

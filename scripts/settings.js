@@ -4,6 +4,7 @@ $("#usernameinput").on('keypress',function(e) {
         user.name = getusernameinput()
         savegame()
         $("#currentusername").html("Username: " + user.name)
+        updateprofiledisplay()
     }
 });
 getsellbelowinput = function(){return document.getElementById('sellbelowinput').value}
@@ -20,13 +21,23 @@ $("#sellbelowinput").on('keypress',function(e) {
 });
 function sellallbelow(price) {
   for (var i = 0; i < user.inventory.length; i++) {
-    console.log("checking index #"+(user.inventory.length-i-1))
     if(user.inventory[user.inventory.length-i-1].cube.price < user.sellbelowprice) {
       user.money += user.inventory[user.inventory.length-i-1].cube.price
       user.inventory.splice(user.inventory.length-i-1, 1)
+    }
+    if(user.inventory.filter(cube => cube.cube.price < price).length >= 1) {
+      sellallbelow(price)
     }
   }
   updateinventorydisplay()
   updatemoneydisplay()
   savegame()
 }
+getpfpinput = function(){return document.getElementById('pfpinput').value}
+$("#pfpinput").on('keypress',function(e) {
+    if(e.which == 13) {
+        user.pfp = getpfpinput()
+        savegame()
+        updateprofiledisplay()
+    }
+});

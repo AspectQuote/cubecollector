@@ -2,65 +2,42 @@ currenttab = "home"
 function updatetabdisplay(tab) {
   switch (tab) {
     case "home":
+      hidecurrenttab()
       currenttab = "home"
       $("#homewrapper").show()
-      $("#tradeupswrapper").hide()
-      $("#levelwrapper").hide()
-      $("#unboxingwrapper").hide()
-      $("#settingswrapper").hide()
-      $("#jpwrapper").hide()
       updateinventorydisplay(false)
       break;
-    case "levels":
-      currenttab = "levels"
-      $("#levelwrapper").show()
-      $("#homewrapper").hide()
-      $("#unboxingwrapper").hide()
-      $("#tradeupswrapper").hide()
-      $("#settingswrapper").hide()
-      $("#jpwrapper").hide()
+    case "achievements":
+      hidecurrenttab()
+      currenttab = "achievements"
+      $("#achievementwrapper").show()
       updateinventorydisplay(false)
+      updateachievementsdisplay()
       break;
     case "boxes":
+      hidecurrenttab()
       currenttab = "boxes"
       $("#unboxingwrapper").show()
-      $("#tradeupswrapper").hide()
-      $("#levelwrapper").hide()
-      $("#homewrapper").hide()
-      $("#settingswrapper").hide()
-      $("#jpwrapper").hide()
       updateinventorydisplay(false)
       break;
     case "tradeups":
+      hidecurrenttab()
       currenttab = "tradeups"
       $("#tradeupswrapper").show()
-      $("#levelwrapper").hide()
-      $("#homewrapper").hide()
-      $("#unboxingwrapper").hide()
-      $("#settingswrapper").hide()
-      $("#jpwrapper").hide()
       updateinventorydisplay(false, true)
       updatetradeupsinputdisplay()
       getrandomtradeuppropaganda()
         break;
     case "settings":
+      hidecurrenttab()
       currenttab = "settings"
       $("#settingswrapper").show()
-      $("#tradeupswrapper").hide()
-      $("#levelwrapper").hide()
-      $("#homewrapper").hide()
-      $("#unboxingwrapper").hide()
-      $("#jpwrapper").hide()
       updateinventorydisplay(false)
       $("#currentusername").html("Username: "+user.name)
       break;
     case "jackpot":
+      hidecurrenttab()
       currenttab = "jackpot"
-      $("#settingswrapper").hide()
-      $("#tradeupswrapper").hide()
-      $("#levelwrapper").hide()
-      $("#homewrapper").hide()
-      $("#unboxingwrapper").hide()
       updateinventorydisplay(true)
       $("#jpwrapper").show()
       $("#jpentries").html('')
@@ -70,6 +47,13 @@ function updatetabdisplay(tab) {
       }
       updatejpdisplay()
       break;
+    case "profile":
+      hidecurrenttab()
+      currenttab = "profile"
+      updateprofiledisplay()
+      $("#profilewrapper").show()
+      updateinventorydisplay(false)
+      break;
     default:
 
   }
@@ -77,8 +61,8 @@ function updatetabdisplay(tab) {
 $("#tradeuplink").click(function(){
 updatetabdisplay("tradeups")
 })
-$("#levellink").click(function(){
-updatetabdisplay("levels")
+$("#achievementslink").click(function(){
+updatetabdisplay("achievements")
 })
 $("#homelink").click(function(){
 updatetabdisplay("home")
@@ -92,3 +76,43 @@ updatetabdisplay("settings")
 $("#jplink").click(function(){
 updatetabdisplay("jackpot")
 })
+$("#topbarprofilewrapper").click(function(){
+updatetabdisplay("profile")
+})
+function hidecurrenttab() {
+  switch (currenttab) {
+    case "home":
+      $("#homewrapper").hide()
+      break;
+    case "achievements":
+      $("#achievementwrapper").hide()
+      break;
+    case "boxes":
+      $("#unboxingwrapper").hide()
+      break;
+    case "tradeups":
+      $("#tradeupswrapper").hide()
+        break;
+    case "settings":
+      $("#settingswrapper").hide()
+      break;
+    case "jackpot":
+      $("#jpwrapper").hide()
+      break;
+    case "profile":
+      $("#profilewrapper").hide()
+      break;
+    default:
+
+  }
+}
+function hidealltabs() {
+  $("#homewrapper").hide()
+  $("#levelwrapper").hide()
+  $("#unboxingwrapper").hide()
+  $("#tradeupswrapper").hide()
+  $("#settingswrapper").hide()
+  $("#jpwrapper").hide()
+  $("#profilewrapper").hide()
+  $("#achievementwrapper").hide()
+}

@@ -26,6 +26,28 @@ $("#entries").append(ghostreel)
     $("#lastunboxflavortext").html(pull.cube.flavortext)
 		$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(pull.cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(pull.cube.rarity)+")")
     user.inventory.push(pull) //weird but aight
+    if (ticket <=  400) {   // light green
+			giveexp(2)
+		}
+		if (ticket <=  650 && ticket >= 401) { // green
+			giveexp(5)
+		}
+		if (ticket <=  800 && ticket >= 651) { // blue
+			giveexp(8)
+		}
+		if (ticket <=  900 && ticket >= 801) { // purple
+			giveexp(15)
+		}
+		if (ticket <=  980 && ticket >= 901) { // orange
+		  giveexp(27)
+		}
+		if (ticket <=  995 && ticket >= 981) { // red
+			giveexp(50)
+		}
+		if (ticket <= 1000 && ticket >= 996){ // black
+			giveexp(100)
+		}
+    checkforachievements("unboxing")
     savegame()
     updateinventorydisplay()
   }, 6000)

@@ -108,6 +108,8 @@ function completetradeup() {
   	}, 2000);
 		setTimeout(function(){
 			user.inventory.push(tradeupresult)
+			user.stats.tradeups++
+			checkforachievements("tradeup")
 			savegame()
 			updateinventorydisplay()
   	}, 2750);

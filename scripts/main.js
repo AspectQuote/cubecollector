@@ -35,7 +35,7 @@ $("#caseopenbutton").click(function(){
 	}
 })
 function updatemoneydisplay(){
-	$("#moneyamount").html("Money: $"+(user.money/100).toLocaleString())
+	$("#moneyamount").html("$"+(user.money/100).toLocaleString())
 }
 moneycooldown = window.setInterval(function(){
 	moneycooldown = false
@@ -63,23 +63,33 @@ function checklocalstorage(){
 	}
 }
 function savegame(){
-	/* localStorage.setItem("usermoney", user.money)
-	localStorage.setItem("userboxes", user.boxes)
-	localStorage.setItem("userinventory", user.inventory) */
 	localStorage.setItem("user", JSON.stringify(user))
 }
 function loadsave(){
-	/* user.money = localStorage.getItem("usermoney")
-	user.boxes = localStorage.getItem("userboxes")
-	user.inventory = localStorage.getItem("userinventory") */
 	user = JSON.parse(localStorage.getItem("user"))
 	if (user.boxes.length != allboxes.length) {
 		while (user.boxes.length < allboxes.length) {
-			user.boxes.push({box: allboxes[user.boxes.length-1], amount: 0})
+			user.boxes.push({box: allboxes[user.boxes.length], amount: 0})
 		}
 	}
+	if (user.exp == undefined) {user.exp = 0;}
+	if (user.skillpoints == undefined) {user.skillpoints = 0;}
+	if (user.pfp == undefined) {user.pfp = "sprites/cube16x16temp.png"}
 	if (user.sellbelowprice == undefined) { user.sellbelowprice = 100;}
-	if (user.name == undefined) { user.name = "Player";}
+	if (user.name == undefined) {user.name = "Player";}
+	if (user.stats == undefined) {
+		user.stats = {};
+		user.stats.blacksunboxed = 0
+		user.stats.unboxes = 0
+		user.stats.jackpotswon = 0
+		user.stats.cfswon = 0
+		user.stats.bestcube = {price: 0}
+		user.stats.tradeups = 0
+	}
+	if (user.achievements == undefined) {
+		user.achievements = []
+	}
+	if (user.level == undefined) {user.level = 0}
 	for (var i = 0; i < user.inventory.length; i++) {
 		if (user.inventory[i].cube.cubeid) { // removes old cubes without ID's
 			user.inventory[i].cube.price = allcubes[user.inventory[i].cube.cubeid].price
@@ -87,7 +97,19 @@ function loadsave(){
 			user.inventory.splice(i, 1)
 		}
 	}
+	updateprofiledisplay()
 	updateinventorydisplay()
+}
+function resetsave() {
+	user = {
+		money: 1000,
+		boxes: [],
+		inventory: [],
+		name: "Player",
+		betitems: []
+	}
+	savegame()
+	location.reload()
 }
 tryforjackpot = window.setInterval(function(){
 	if (randomnumber(20) == 1 && jpgoing == false) { // a 5% chance for the bots to start a JP every 3 seconds, an average of 1 minute between jps

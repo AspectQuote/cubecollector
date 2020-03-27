@@ -275,7 +275,14 @@ function spinthejp(ticket) {
 			for (i=0; i < itemstogivetouser.length; i++) {
 				user.inventory.push(itemstogivetouser[i])
 			}
+			updateusertotalbet()
+			if(Math.floor((getjptotal()-user.bet)/1000) > 0) {
+				giveexp(Math.floor((getjptotal()-user.bet)/1000)) // give the player experience based on the value of the pot they just won
+				sendusermessage("alert", "Jackpot Won!", "You earned "+Math.floor((getjptotal()-user.bet)/1000)+" exp. for winning that pot!")
+			}
 			updateinventorydisplay()
+			user.stats.jackpotswon++
+			checkforachievements("jackpot")
 			savegame()
 		}
 		$("#lastjpwinnerinfotext").html(getjpwinner().name+ " won "+(getjptotal()/100).toLocaleString()+"$ with "+(getjpwinner().bet/100).toLocaleString()+"$ with a "+Math.floor((getjpwinner().bet/getjptotal())*10000)/100+"% chance on ticket "+jpwinningticket)
@@ -315,4 +322,3 @@ function getjpwinner() {
 		}
 	}
 }
-// finish bot AI, add random jp events, and make the player able to start JPs

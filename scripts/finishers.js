@@ -52,8 +52,14 @@ function updateinventorydisplay(jackpotmode, tradeupmode) {
   $("#inventory").html("")
   for(i=0; i < user.inventory.length; i++) {
 	 $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; border-radius: 3px; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(-1px -1px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(2px 2px 1px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div></div>")
+	 if (user.inventory[i].cube.price > user.stats.bestcube.price) {
+	   user.stats.bestcube = user.inventory[i].cube
+	 }
 	 createclickablesellable(i , jackpotmode, tradeupmode)
      }
+  if (currenttab == "profile") {
+    updateprofiledisplay()
+  }
   $("#inventoryslotsfilled").html(user.inventory.length)
   $("#inventoryvalue").html("Inventory Value: $"+(getplayerinventoryvalue()/100).toLocaleString())
 }
@@ -76,6 +82,7 @@ function updateboxesdisplay() {
   $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
   $("#box"+allboxes.indexOf(selectedbox)).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
 }
+hidealltabs()
 $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
 updatetabdisplay("home")
 checklocalstorage()
