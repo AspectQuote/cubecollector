@@ -14,7 +14,7 @@ background-color: #303036;
 }
 #app {
 display: flex;
-height: 97%;
+height: 93%;
 }
 #unboxingwrapper {
 width: 70%;
@@ -27,7 +27,7 @@ height: 100%;
 background-color: #303036;
 color: white;
 }
-#levelwrapper {
+#achievementwrapper {
 width: 70%;
 height: 100%;
 background-color: #303036;
@@ -52,24 +52,23 @@ background-color: #303036;
 color: white;
 }
 .topbarcontainer {
-  height: 3%;
+  height: 5%;
+  background-color: #050116;
 }
 #topbar {
 width:100%;
-background-color: #050116;
-padding-top: 5px;
-padding-bottom: 5px;
-height: 100%;
 }
 #homelink {
 padding-left: 5px;
 }
 #navwrapper {
-float: left;
+display: flex;
 }
 .navbaritems {
 display: inline-block;
-padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-right: 20px;
 transition: 0.4s;
 color: white;
 }
@@ -256,6 +255,12 @@ color: white;
 float: right;
 padding-right: 10px;
 }
+#topbarprofilewrapper {
+display: inline-block;
+color: white;
+float: right;
+padding-right: 10px;
+}
 #boxes {
 background-color: #303036;
 text-align: center;
@@ -299,6 +304,7 @@ height: 97%;
 border: 1px solid #121212;
 background-color: #303036;
 color: white;
+height: 2%;
 font-size: xx-small;
 display: flex;
 flex-direction: row;
@@ -489,4 +495,44 @@ position: absolute;
 top: 0;
 left: 0;
 font-size: x-small;
+}
+.statcontainers {
+margin-left: 10px;
+font-size: small;
+border-bottom: 1px solid #191919;
+padding-top: 5px;l
+padding-top: 5px;
+}
+.messagetitle {
+font-style: bold;
+}
+.messagecontent {
+font-size: small;
+font-style: italic;
+margin-left: 5px;
+}
+.tooltips {
+  visibility: hidden;
+  width: 200px;
+  background-color: #1E1E24;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 105%;
+  font-size: small;
+}
+.achievements:hover .tooltips {
+  visibility: visible;
+  cursor: pointer;
+}
+.achievements:hover {
+  cursor: pointer;
+}
+.achievements {
+  position: relative;
 }

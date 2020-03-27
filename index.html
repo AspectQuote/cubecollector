@@ -5,20 +5,32 @@
 		<link rel="icon" href="sprites/cube16x16temp.ico">
 	</head>
 	<body>
-		<div class="topbarcontainer">
-			<div id="topbar">
+		<div class="topbarcontainer" style="align-items: center; display: flex;">
+			<div id="topbar" style="top:0; bottom:0;">
 				<div id="navwrapper">
-					<div class="navbaritems" id="homelink">Home</div>
+					<div class="navbaritems" id="homelink" style="margin-left: 10px;">Home</div>
 					<div class="navbaritems" id="caselink">Boxes</div>
 					<div class="navbaritems" id="tradeuplink">Trade Up</div>
 					<div class="navbaritems" id="jplink">Jackpot</div>
-					<div class="navbaritems" id="levellink">Levels</div>
+					<div class="navbaritems" id="achievementslink">Achievements</div>
 					<div class="navbaritems" id="settingslink">Settings</div>
 				</div>
-				<div id="moneyamount">
-					Money
-				</div>
 			</div>
+			<div id="topbarprofilewrapper" style="height: 85%;">
+					<div id="topbarprofilemain" style="display: flex; vertical-align: middle;">
+						<div id="topbarlevel" style=" width: 26px; height: 26px; position: relative;">
+							<div id="playerlevel" style="font-size: small; height: 16px; width: 50%; position: absolute; margin-top: 15%; margin-left: 30%;">1</div>
+							<img id="topbarlevelicon" src="sprites/levelicons/level1.png" style="width: 26px; height: 26px;"/>
+						</div>
+						<div id="topbarprofilextras">
+							<div id="topbarusername" style="font-size: small;">Username</div>
+							<div id="moneyamount" style="font-size: x-small;">Money</div>
+						</div>
+						<div id="topbarpfp">
+							<img id="profilepicture" src="sprites/dice.png" style="border: 2px solid #AD5A00; border-radius: 50%; height: 32px; margin-left: 5px; cursor: pointer;">
+						</div>
+					</div>
+				</div>
 		</div>
 	<div id="app">
 		<div id="unboxingwrapper">
@@ -75,26 +87,27 @@
 				</div>
 			</div>
 		</div>
-		<div id="homewrapper">
+		<div id="homewrapper" style="">
 			<div id="homeheader" style="width: 100%; text-align: center; padding: 10px; font-size: x-large;"> Home </div>
-			<div id="homemain" style="width: 60%; text-align: left; padding-left: 5%; padding-right: 5%; height: 90%; border-radius: 25px 25px 0% 0%; background-color: #1C1C1C; position: absolute; bottom: 0;">
+			<div id="homemain" style="width: 60%; text-align: left; padding-left: 5%; padding-right: 5%; height: 80%; border-radius: 25px 25px 0% 0%; background-color: #1C1C1C; position: absolute; bottom: 0;">
 				<div id="announcements">
-					<h1>Patch 3-24-20</h1>
+					<h1>Patch 3-27-20</h1>
 					<div class="homeheader">How to play</div>
 					<div class="homedata">You can open boxes, and get cubes. Each cube has its own rarity (and price!) and each box has its own cubes. When you get a cube, you may click on it to inspect it, and if you double click on it, you can sell it. A few planned features will give lower-tier cubes more uses ;)</div>
-					<div class="homeheader">Trading Up</div>
-					<div class="homedata">You may trade 10 of your cubes to get one cube of a higher tier. However, you may now trade any red cubes for black cubes, but there are ways to get cubes better than black tier</div>
+					<div class="homeheader">Experienced Yet?</div>
+					<div class="homedata">You can now earn experience and skill points! (and achievements!)</div>
 					<div class="homeheader">Discord</div>
 					<div class="homedata">Join the site's discord in order to participate in events like creating your own cubes for the site, and discussing/suggesting features for the site! You may also report bugs to me on the discord; just ping @AspectQuote (Feel free to invite your friends too!) You can join the discord here: <a href="https://discordapp.com/invite/C3U8scK" target="_blank">discord</a></div>
 					<div class="homeheader">Update info</div>
-					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">jackpot bug fixes</li><li class="homedata">trade ups</li><li class="homedata">more bots</li><li class="homedata">gaming box</li></ul></div>
+					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">optimizations</li><li class="homedata">experience and level system</li><li class="homedata">stat-tracking</li><li class="homedata">profile page</li><li class="homedata">profile picture options</li><li class="homedata">redesigned navbar</li><li class="homedata">clear save button</li><li class="homedata">mobile support</li></ul></div>
 					<div class="homeheader">Other News</div>
 					<div class="homedata">More cubes coming soon!</div>
 				</div>
 			</div>
 		</div>
-		<div id="levelwrapper">
-			Levels and Experience are Coming Soon!
+		<div id="achievementwrapper">
+			<div id="achievementsheader" style="text-align: center; font-size: large; font-style: bold; padding-bottom: 20px; padding-top: 20px; border-bottom: 2px solid black; position: relative;">Achievements<div id="achievementcount" style="position: absolute; bottom: 0px; right: 0px; margin-bottom: 3px; margin-right: 3px; font-size: small;">0/30 (0%)</div></div>
+			<div id="achievementsmain" style="display: flex; flex-wrap: wrap;"></div>
 		</div>
 		<div id="tradeupswrapper">
 			<div id="tradeupsheader"style="text-align: center;">
@@ -196,6 +209,12 @@
 					<input type="text" id="sellbelowinput" placeholder="enter price in cents" title="press ENTER to confirm">
 				</div>
 			</div>
+			<div id="pfpsetting" class="settingsoptions">
+				<div>
+					<label for="pfpinput">Profile Picture:</label>
+					<input type="text" id="pfpinput" placeholder="link or path to an image" title="press ENTER to confirm">
+				</div>
+			</div>
 		</div>
 		<div id="jpwrapper">
 			<div class="jpwinnercontainer">
@@ -235,6 +254,27 @@
 				</div>
 			</div>
 		</div>
+		<div id="profilewrapper" style="width: 70%; height: 100%; position: relative;">
+			<div id="profileheader" style="text-align: center; margin-top: 30px; font-size: x-large; color: white;">
+				<div style="text-align: center;" id="profileusername">Username</div>
+				<div style="text-align: center; font-size: small;" id="profilelevel">level 0</div>
+				<div style="text-align: center; margin-top: 30px;"><img id="profileprofilepicture" src="sprites/dice.png"  style="width: 128px; height: 128px; border-radius: 50%; border: 3px solid #904B00;"/></div>
+				<div id="profileexpbar" style="margin-top: 20px; margin-left: 2.5%; margin-right: 2.5%; width: 95%; height: 20px; border: 3px solid #191919; background-color: #3B3B3B; border-radius: 9px;">
+					<div id="profileexpcounter" style="width: 10%; height: 100%; padding: 0px; margin: 0px; text-align: center; font-size: x-small; background-color: #00408C; color: white; border-radius: 7px; transition: 1s; overflow: hidden;">
+						1/10
+					</div>
+				</div>
+			</div>
+			<div id="profilemain" style="margin-left: 1%; margin-right: 1%; margin-top: 20px; width: 98%; border: 2px solid #191919; border-radius: 4px; color: white;">
+				<div id="profilestatsheader" style="padding-left: 3px; padding-top: 3px;">
+					Stats
+				</div>
+				<div id="profilestatsmain">
+
+				</div>
+			</div>
+			<div id="resetsavebutton" style="position: absolute; right: 0; bottom: 0; margin-right: 5px; margin-bottom: 5px; background-color: #841313; border: 1px solid #5E0E0E; border-radius: 3px; padding: 5px; color: #5E0E0E; cursor: pointer;">Double Click To Reset Save Game</div>
+		</div>
 		<div class="inventorycontainer">
 			<div class="inventoryheader">
 				<div class="inventoryheaderitems" id="inventoryvalue">
@@ -265,6 +305,7 @@
 		</div>
 		</div>
 	</body>
+	<div style="position: absolute; bottom: 0; left: 0; width: 25%; overflow: hidden;" id="usermessages"></div>
 </html>
 <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
 <link rel=stylesheet type=text/css href=styles/styles.css>
@@ -281,5 +322,7 @@
 <script src="scripts/jackpot.js"></script>
 <script src="scripts/settings.js"></script>
 <script src="scripts/tradeups.js"></script>
+<script src="scripts/achievements.js"></script>
+<script src="scripts/levelsandprofile.js"></script>
 <script src="scripts/finishers.js"></script>
 <link rel=stylesheet type=text/css href=styles/styles.css>
