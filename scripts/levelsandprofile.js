@@ -83,7 +83,7 @@ levels = [
 	{exp: 11700, rewards: {skillpoints: 1, cubes: false, boxes: false, achievement: true}}, // lvl 50
 ]
 for(i=levels.length; i < 1338; i++) {
-	levels.push({exp: levels[i-1].exp+i*10, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: false}})
+	levels.push({exp: levels[i-1].exp+i*10, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: true}})
 }
 levels.push({exp: 1000000000000000000000000000, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: false}})
 function getuserlevel() {
