@@ -172,8 +172,8 @@ function getlevelicon() {
 	if (user.level >= 400 && user.level < 500) {
 		return "sprites/levelicons/level400.png"
 	}
-	if (user.level >= 500 && user.level < 100) {
-		return "sprites/levelicons/level50.png"
+	if (user.level >= 500 && user.level < 1000) {
+		return "sprites/levelicons/level500.png"
 	}
 	if (user.level >= 1000) {
 		return "sprites/levelicons/level1000.png"
