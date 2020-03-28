@@ -175,55 +175,55 @@ unboxeriiiachievement = new Achievement("Unboxer III", "Unbox 200 boxes", "sprit
   }}, 200, "visibile")
 unboxerivachievement = new Achievement("Unboxer IV", "Unbox 500 boxes", "sprites/achievementicons/unboxingtier4.png", "unboxing",function(){
   if(user.stats.unboxes >= 500 && user.achievements.includes(21) == false ){
-    user.achievements.push(22)
+    user.achievements.push(21)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 500, "visibile")
 unboxervachievement = new Achievement("Unboxer V", "Unbox 1000 boxes", "sprites/achievementicons/unboxingtier5.png", "unboxing",function(){
-  if(user.stats.unboxes >= 1000 && user.achievements.includes(23) == false ){
-    user.achievements.push(23)
+  if(user.stats.unboxes >= 1000 && user.achievements.includes(22) == false ){
+    user.achievements.push(22)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 1000, "visibile")
 obtainagoldachievement = new Achievement("Obtain a Gold Cube", "Trade up to a gold quality item", "sprites/achievementicons/goldtradeup.png", "tradeup",function(){
-  if(tradeupresult.cube.rarity == yellow && user.achievements.includes(24) == false ){
-    user.achievements.push(24)
+  if(tradeupresult.cube.rarity == yellow && user.achievements.includes(23) == false ){
+    user.achievements.push(23)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 750, "visibile")
 tradeupiachievement = new Achievement("Trader-Upper I", "Trade up 3 times", "sprites/achievementicons/tradeuptier1.png", "tradeup", function(){
-  if(user.stats.tradeups >= 3 && user.achievements.includes(25) == false ){
-    user.achievements.push(25)
+  if(user.stats.tradeups >= 3 && user.achievements.includes(24) == false ){
+    user.achievements.push(24)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 25, "visibile")
 tradeupiiachievement = new Achievement("Trader-Upper II", "Trade up 10 times", "sprites/achievementicons/tradeuptier2.png", "tradeup", function(){
-  if(user.stats.tradeups >= 10 && user.achievements.includes(26) == false ){
-    user.achievements.push(26)
+  if(user.stats.tradeups >= 10 && user.achievements.includes(25) == false ){
+    user.achievements.push(25)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 50, "visibile")
 tradeupiiiachievement = new Achievement("Trader-Upper III", "Trade up 30 times", "sprites/achievementicons/tradeuptier3.png", "tradeup", function(){
-  if(user.stats.tradeups >= 30 && user.achievements.includes(27) == false ){
-    user.achievements.push(27)
+  if(user.stats.tradeups >= 30 && user.achievements.includes(26) == false ){
+    user.achievements.push(26)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 100, "visibile")
 tradeupivachievement = new Achievement("Trader-Upper IV", "Trade up 50 times", "sprites/achievementicons/tradeuptier4.png", "tradeup", function(){
-  if(user.stats.tradeups >= 50 && user.achievements.includes(28) == false ){
-    user.achievements.push(28)
+  if(user.stats.tradeups >= 50 && user.achievements.includes(27) == false ){
+    user.achievements.push(27)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 300, "visibile")
 tradeupvachievement = new Achievement("Trader-Upper V", "Trade up 100 times", "sprites/achievementicons/tradeuptier5.png", "tradeup", function(){
-  if(user.stats.tradeups >= 100 && user.achievements.includes(29) == false ){
-    user.achievements.push(29)
+  if(user.stats.tradeups >= 100 && user.achievements.includes(28) == false ){
+    user.achievements.push(28)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name, this.description)
   }}, 500, "visibile")
 getbaitedachievement = new Achievement("BAITED!", "Get baited by a box", "sprites/achievementicons/baited.png", "unboxing", function(){
-  if(ticket <= 15 && user.achievements.includes(30) == false){
-    user.achievements.push(30)
+  if(ticket <= 15 && user.achievements.includes(29) == false){
+    user.achievements.push(29)
     giveexp(this.expreward)
     sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
   }
