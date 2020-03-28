@@ -81,8 +81,11 @@ levels = [
 	{exp: 10420, rewards: {skillpoints: 1, cubes: false, boxes: false, achievement: false}}, // lvl 48
 	{exp: 11000, rewards: {skillpoints: 0, cubes: false, boxes: [{box: GameBox, amount: 20}], achievement: false}}, // lvl 49
 	{exp: 11700, rewards: {skillpoints: 1, cubes: false, boxes: false, achievement: true}}, // lvl 50
-	{exp: 100000000000, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: true}}, // lvl MAX
 ]
+for(i=levels.length; i < 1338; i++) {
+	levels.push({exp: levels[i-1].exp+i*10, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: false}})
+}
+levels.push({exp: 1000000000000000000000000000, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: false}})
 function getuserlevel() {
 	user.level = 0
 	for (i=0; i < user.level+1; i++) {
@@ -151,8 +154,29 @@ function getlevelicon() {
 	if (user.level >= 35 && user.level < 50) {
 		return "sprites/levelicons/level35.png"
 	}
-	if (user.level >= 50) {
+	if (user.level >= 50 && user.level < 75) {
 		return "sprites/levelicons/level50.png"
+	}
+	if (user.level >= 75 && user.level < 100) {
+		return "sprites/levelicons/level75.png"
+	}
+	if (user.level >= 100 && user.level < 200) {
+		return "sprites/levelicons/level100.png"
+	}
+	if (user.level >= 200 && user.level < 300) {
+		return "sprites/levelicons/level200.png"
+	}
+	if (user.level >= 300 && user.level < 400) {
+		return "sprites/levelicons/level300.png"
+	}
+	if (user.level >= 400 && user.level < 500) {
+		return "sprites/levelicons/level400.png"
+	}
+	if (user.level >= 500 && user.level < 100) {
+		return "sprites/levelicons/level50.png"
+	}
+	if (user.level >= 1000) {
+		return "sprites/levelicons/level1000.png"
 	}
 }
 messagenumber = 0;
