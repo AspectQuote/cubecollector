@@ -40,8 +40,20 @@ function checkforachievements(type){
         allachievements.filter(achievement => achievement.type == "tradeup")[e].checker()
       }
       break;
+    case "cf":
+      for (var e = 0; e < allachievements.filter(achievement => achievement.type == "cf").length; e++) {
+        allachievements.filter(achievement => achievement.type == "cf")[e].checker()
+      }
+      break;
+    case "quest":
+      for (var e = 0; e < allachievements.filter(achievement => achievement.type == "quest").length; e++) {
+        allachievements.filter(achievement => achievement.type == "quest")[e].checker()
+      }
+      break;
     default:
-
+      for (var e = 0; e < allachievements.length; e++) {
+        allachievements[e].checker()
+      }
     }
     updateachievementsdisplay()
 //  }
@@ -228,6 +240,77 @@ getbaitedachievement = new Achievement("BAITED!", "Get baited by a box", "sprite
     sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
   }
 }, 40, "visible")
+coinflipi = new Achievement("Coinflip Winner I", "Win 3 Coinflips", "sprites/achievementicons/cftier1.png", "cf", function(){
+  if(user.stats.cfswon >= 3 && user.achievements.includes(30) == false){
+    user.achievements.push(30)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 50, "visible")
+coinflipii = new Achievement("Coinflip Winner II", "Win 6 Coinflips", "sprites/achievementicons/cftier2.png", "cf", function(){
+  if(user.stats.cfswon >= 6 && user.achievements.includes(31) == false){
+    user.achievements.push(31)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 100, "visible")
+coinflipiii = new Achievement("Coinflip Winner III", "Win 10 Coinflips", "sprites/achievementicons/cftier3.png", "cf", function(){
+  if(user.stats.cfswon >= 10 && user.achievements.includes(32) == false){
+    user.achievements.push(32)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 250, "visible")
+coinflipiv = new Achievement("Coinflip Winner IV", "Win 15 Coinflips", "sprites/achievementicons/cftier4.png", "cf", function(){
+  if(user.stats.cfswon >= 15 && user.achievements.includes(33) == false){
+    user.achievements.push(33)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 500, "visible")
+coinflipv = new Achievement("Coinflip Winner V", "Win 25 Coinflips", "sprites/achievementicons/cftier5.png", "cf", function(){
+  if(user.stats.cfswon >= 25 && user.achievements.includes(34) == false){
+    user.achievements.push(34)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 750, "visible")
+questsi = new Achievement("Quest Fulfiller I", "Complete 5 Quests", "sprites/achievementicons/questtier1.png", "quest", function(){
+  if(user.questscompleted >= 5 && user.achievements.includes(35) == false){
+    user.achievements.push(35)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 50, "visible")
+questsii = new Achievement("Quest Fulfiller II", "Complete 15 Quests", "sprites/achievementicons/questtier2.png", "quest", function(){
+  if(user.questscompleted >= 15 && user.achievements.includes(36) == false){
+    user.achievements.push(36)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 100, "visible")
+questsiii = new Achievement("Quest Fulfiller III", "Complete 30 Quests", "sprites/achievementicons/questtier3.png", "quest", function(){
+  if(user.questscompleted >= 30 && user.achievements.includes(37) == false){
+    user.achievements.push(37)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 250, "visible")
+questsiv = new Achievement("Quest Fulfiller IV", "Complete 70 Quests", "sprites/achievementicons/questtier4.png", "quest", function(){
+  if(user.questscompleted >= 70 && user.achievements.includes(38) == false){
+    user.achievements.push(38)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 500, "visible")
+questsv = new Achievement("Quest Fulfiller V", "Complete 150 Quests", "sprites/achievementicons/questtier5.png", "quest", function(){
+  if(user.questscompleted >= 150 && user.achievements.includes(39) == false){
+    user.achievements.push(39)
+    giveexp(this.expreward)
+    sendusermessage("alert", "Achievement Get! "+ this.name +" ("+this.expreward+" exp.) ", this.description)
+  }
+}, 1000, "visible")
+
 function updateachievementsdisplay() {
   $("#achievementsmain").html('')
   for(i=0; i < allachievements.length; i++) {

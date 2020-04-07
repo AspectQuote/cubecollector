@@ -13,6 +13,10 @@
 					<div class="navbaritems" id="tradeuplink">Trade Up</div>
 					<div class="navbaritems" id="jplink">Jackpot</div>
 					<div class="navbaritems" id="achievementslink">Achievements</div>
+					<div class="navbaritems" id="questslink">Quests</div>
+					<div class="navbaritems" id="coinfliplink">Coinflip</div>
+					<div class="navbaritems" id="skillpointslink">Skills</div>
+					<div class="navbaritems" id="cubepedialink">Cubepedia</div>
 					<div class="navbaritems" id="settingslink">Settings</div>
 				</div>
 			</div>
@@ -87,19 +91,25 @@
 				</div>
 			</div>
 		</div>
-		<div id="homewrapper" style="">
-			<div id="homeheader" style="width: 100%; text-align: center; padding: 10px; font-size: x-large;"> Home </div>
+		<div id="homewrapper"  style="background-image: url('sprites/background-test.png');">
+			<div id="homeheader" style="width: 100%; text-align: center; padding: 10px; font-size: x-large; color: orange;"></div>
 			<div id="homemain" style="width: 60%; text-align: left; padding-left: 5%; padding-right: 5%; height: 80%; border-radius: 25px 25px 0% 0%; background-color: #1C1C1C; position: absolute; bottom: 0;">
 				<div id="announcements">
-					<h1>Patch 3-27-20</h1>
+					<h1>Patch 4-7-20</h1>
 					<div class="homeheader">How to play</div>
 					<div class="homedata">You can open boxes, and get cubes. Each cube has its own rarity (and price!) and each box has its own cubes. When you get a cube, you may click on it to inspect it, and if you double click on it, you can sell it. A few planned features will give lower-tier cubes more uses ;)</div>
-					<div class="homeheader">Experienced Yet?</div>
-					<div class="homedata">You can now earn experience and skill points! (and achievements!)</div>
+					<div class="homeheader">Double or Nothing!</div>
+					<div class="homedata">You can now coinflip for a 50/50 chance of doubling the value you put in!</div>
 					<div class="homeheader">Discord</div>
 					<div class="homedata">Join the site's discord in order to participate in events like creating your own cubes for the site, and discussing/suggesting features for the site! You may also report bugs to me on the discord; just ping @AspectQuote (Feel free to invite your friends too!) You can join the discord here: <a href="https://discordapp.com/invite/C3U8scK" target="_blank">discord</a></div>
+					<div class="homeheader">Mad Skills!!</div>
+					<div class="homedata">Spend your skill points to get some helpful perks! Be careful though, because after level 50, you cannot get any more of them!</div>
+					<div class="homeheader">I have one reQUEST...</div>
+					<div class="homedata">Fulfill quests to get special cubes!</div>
+					<div class="homeheader">Godly Update!</div>
+					<div class="homedata">Opening boxes now yeilds a 3/11 chance to get a prefix! prefixes alter the values of cubes positively! (and negatively!)</div>
 					<div class="homeheader">Update info</div>
-					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">optimizations</li><li class="homedata">experience and level system</li><li class="homedata">stat-tracking</li><li class="homedata">profile page</li><li class="homedata">profile picture options</li><li class="homedata">redesigned navbar</li><li class="homedata">clear save button</li><li class="homedata">mobile support</li></ul></div>
+					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">optimizations</li><li class="homedata">jackpot bot fixes</li><li class="homedata">100+ more cubes</li><li class="homedata">100 prefixes</li></div>
 					<div class="homeheader">Other News</div>
 					<div class="homedata">More cubes coming soon!</div>
 				</div>
@@ -185,7 +195,7 @@
 					</div>
 				</div>
 				<div id="tradeupchanceswrapper" style="font-size: small; color: white; text-align: left;">
-					Chances for your trade up:
+					<div id="chancesforyourtradeup">Chances for your trade up:</div>
 					<div id="tradeupchances">
 
 					</div>
@@ -193,6 +203,48 @@
 			</div>
 		</div>
 	</div>
+		</div>
+		<div id="coinflipwrapper">
+			<div id="coinflipheader" style="font-size: large; padding-top: 2.5%; padding-bottom: 2.5%; border-bottom: 1px solid black; text-align: center; height: 5%;">Coinflips<div id="coinflipscount" style='font-size: x-small; color: light_grey;'>0/6 coinflips up</div></div>
+			<div id="coinflipbody" style='height: 80%; overflow: scroll; position: relative;'>
+				<div id="cfdisplays"></div>
+				<div id='createcfcontainer' style='position: absolute; width: 100%;'>
+					<div id='createcfheader' style="text-align: center; padding-top: 3%; padding-bottom: 5%; height: 7%; position: relative;">
+						Create Coinflip
+						<div id="cfoverlayclosebutton" style='position: absolute; top: 0; right: 0; color: #1C1C1C; cursor: pointer;'>x</div>
+					</div>
+					<div id='createcfitemsdisplay' style='height: 32px; width: 100%; padding-top: 5px; padding-bottom: 5px; border-top: 1px solid black; border-bottom: 1px solid black;'>
+
+					</div>
+					<div id='createcfitemvalue' style='text-align: right; font-size: x-small; color: #1C1C1C; font-style: italic; margin-right: 3px;'>
+						0$
+					</div>
+					<div id='createcfchooseside' style='font-style: italics; text-align: middle; border-top: 1px solid #292929; padding-top: 1.5%; padding-bottom: 1.5%;'>
+						<div style='width: 100%; text-align: center;'>Choose Side</div>
+						<div id='cfshoosesidecontainer' style='display: flex; width: 100%; justify-content: space-around; padding-bottom: 1.5%; height: 10%;'>
+							<div id='createcfchooseedgeside' style='height: 100%; text-align: center; cursor: pointer;'><img id='edgesideselection' src='sprites/coinflip/edgeside.png' style='height: 96px; width: 96px;' /><br/><span style='color: #CD38B6; font-size: small;'>EDGE SIDE</span></div>
+							<div id='createcfchoosefaceside' style='height: 100%; text-align: center; cursor: pointer;'><img id='facesideselection'src='sprites/coinflip/faceside.png' style='height: 96px; width: 96px;' /><br/><span style='color: #389ACD; font-size: small;'>FACE SIDE</span></div>
+						</div>
+					</div>
+					<div id='completecfoverlaybuttoncontainer' style='width: 100%; text-align: center; display: flex; justify-content: space-around;'>
+						<div id='completecfoverlaybutton' style='background-image: linear-gradient(45deg, #389ACD, #CD38B6); border-radius: 4px; border: 1px solid #6648b1; text-align: center; padding: 10px; width: 80px; cursor: pointer;'>Confirm?</div>
+					</div>
+					<br/><div id='targetcfbetdisplay' style='margin-top: 30px; font-style: italic; text-align: center;'>$0 - $0</div>
+				</div>
+			</div>
+			<div id="cffooter" style='height: 2%; padding-top: 1.5%; padding-bottom: 1.5%; text-align: center; display: flex; cursor: pointer;  background-image: linear-gradient(45deg, #389ACD, #CD38B6);'>
+				<div style='width: 100%;'>Create Coinflip</div>
+			</div>
+		</div>
+		<div id="skillpointswrapper">
+			<div id='skillpointsheader' style='font-size: x-large; font-weight: bold; padding-top: 20px; text-align: center;'>Skill Upgrades</div>
+			<div id='skillpointsheadersubtext' style='font-size: x-small; padding-bottom: 30px; border-bottom: 1px solid black; text-align: center;'>0 Skill Points To Spend</div>
+			<div id='skillpointsmain' style='height: 90%;'></div>
+		</div>
+		<div id="cubepediawrapper">Cubepedia Coming Soon!</div>
+		<div id="questswrapper">
+			<div id="questsheader" style="font-size: large; padding-top: 20px; padding-bottom: 20px; margin-bottom: 5px; text-align: center; border-bottom: 1px solid black;">Quest Board</div>
+			<div id="questsmain" style='display: flex; flex-wrap: wrap; height: 70%;'></div>
 		</div>
 		<div id="settingswrapper">
 			<div id="settingsheader" style="text-align: center; font-size: x-large; padding-top: 20px; padding-bottom: 30px;">Settings</div>
@@ -284,7 +336,7 @@
 					Sell Below $1.00
 				</div>
 				<div class="inventoryheaderitems" id="inventorysorting">Sort inventory:
-					<div class="inventoryslotitems" id="inventorysorthl" title="sort your inventory from high to low, with high on top, and low on the bottom"> High-Low</div> /
+					<div class="inventoryslotitems" id="inventorysorthl" title="sort your inventory from high to low, with high on top, and low on the bottom">High-Low</div> /
 					<div class="inventoryslotitems" id="inventorysortlh" title="sort your inventory from low to high, with low on top, and high on the bottom">Low-High</div>
 				</div>
 				<div class="inventoryheaderitems" id="inventoryslotsfilledcount">
@@ -315,7 +367,6 @@
 <script src="scripts/cubeconstructor.js"></script>
 <script src="scripts/boxconstructor.js"></script>
 <script src="scripts/prefixconstructor.js"></script>
-<script src="scripts/suffixconstructor.js"></script>
 <script src="scripts/casereel.js"></script>
 <script src="scripts/tabs.js"></script>
 <script src="scripts/bots.js"></script>
@@ -324,5 +375,8 @@
 <script src="scripts/tradeups.js"></script>
 <script src="scripts/achievements.js"></script>
 <script src="scripts/levelsandprofile.js"></script>
+<script src="scripts/quests.js"></script>
+<script src="scripts/coinflip.js"></script>
+<script src="scripts/skillpoints.js"></script>
 <script src="scripts/finishers.js"></script>
 <link rel=stylesheet type=text/css href=styles/styles.css>

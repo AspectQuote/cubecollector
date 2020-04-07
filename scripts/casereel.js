@@ -16,16 +16,25 @@ ghostreel = $("#entries").html()
 // set translation for animation
 reelContainerTranslate = 'translate3D(' + -end + 'px, 0, 0)';
 $("#entries").css("transform", reelContainerTranslate)
-
+function getcubewithprefix() {
+  if(pull.prefix != false) {
+    return pull.prefix.namespace+" "+pull.cube.name
+  } else {
+    return pull.cube.name
+  }
+}
 for (var i = 0; i < reelNumber; i++) {
 $("#entries").append(ghostreel)
   }
   setTimeout(function() {
     $("#lastunboxicon").attr("src", pull.cube.image)
-    $("#lastunboxname").html(pull.cube.name)
+    pull.cube = new Immutablecube(pull.cube)
+    $("#lastunboxname").html(getcubewithprefix())
     $("#lastunboxflavortext").html(pull.cube.flavortext)
 		$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(pull.cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(pull.cube.rarity)+")")
     user.inventory.push(pull) //weird but aight
+    applyprefixestouserinventory()
+    updateinventorydisplay()
     if (ticket <=  400) {   // light green
 			giveexp(2)
 		}
@@ -49,11 +58,10 @@ $("#entries").append(ghostreel)
 		}
     checkforachievements("unboxing")
     savegame()
-    updateinventorydisplay()
-  }, 6000)
+  }, user.spinspeed*1000)
   setTimeout(function(){
     resetspinner(1)
-  }, 9000);
+  }, user.spinspeed*1000 + 3000);
 }
 function resetspinner(beginning){
   if (beginning == true) {
@@ -67,7 +75,7 @@ function resetspinner(beginning){
   $("#entrycontainer").css("opacity",'1')
   }, 1000);
   setTimeout(function(){
-    $("#entries").css("transition",'6s')
+    $("#entries").css("transition", user.spinspeed+'s')
     $("#entries").css("transition-timing-function", "cubic-bezier(.31,.9985,.31,.9985)")
   }, 1240);
   setTimeout(function(){
