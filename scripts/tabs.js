@@ -54,6 +54,32 @@ function updatetabdisplay(tab) {
       $("#profilewrapper").show()
       updateinventorydisplay(false)
       break;
+    case "coinflip":
+      hidecurrenttab()
+      currenttab = "coinflip"
+      $("#coinflipwrapper").show()
+      updateinventorydisplay(false)
+      break;
+    case "quests":
+      hidecurrenttab()
+      currenttab = "quests"
+      updatequestsdisplay()
+      $("#questswrapper").show()
+      updateinventorydisplay(false)
+      break;
+    case "skill points":
+      hidecurrenttab()
+      currenttab = "skill points"
+      $("#skillpointswrapper").show()
+      updateinventorydisplay(false)
+      updateskillsdisplay()
+      break;
+    case "cubepedia":
+      hidecurrenttab()
+      currenttab = "cubepedia"
+      $("#cubepediawrapper").show()
+      updateinventorydisplay(false)
+      break;
     default:
 
   }
@@ -75,6 +101,21 @@ updatetabdisplay("settings")
 })
 $("#jplink").click(function(){
 updatetabdisplay("jackpot")
+})
+$("#skillpointslink").click(function(){
+updatetabdisplay("skill points")
+})
+$("#questslink").click(function(){
+updatetabdisplay("quests")
+})
+$("#cubepedialink").click(function(){
+updatetabdisplay("cubepedia")
+})
+$("#questslink").click(function(){
+updatetabdisplay("quests")
+})
+$("#coinfliplink").click(function(){
+updatetabdisplay("coinflip")
 })
 $("#topbarprofilewrapper").click(function(){
 updatetabdisplay("profile")
@@ -102,6 +143,18 @@ function hidecurrenttab() {
     case "profile":
       $("#profilewrapper").hide()
       break;
+    case "quests":
+      $("#questswrapper").hide()
+      break;
+    case "skill points":
+      $("#skillpointswrapper").hide()
+      break;
+    case "cubepedia":
+      $("#cubepediawrapper").hide()
+      break;
+    case "coinflip":
+      $("#coinflipwrapper").hide()
+      break;
     default:
 
   }
@@ -115,4 +168,8 @@ function hidealltabs() {
   $("#jpwrapper").hide()
   $("#profilewrapper").hide()
   $("#achievementwrapper").hide()
+  $("#skillpointswrapper").hide()
+  $("#questswrapper").hide()
+  $("#cubepediawrapper").hide()
+  $("#coinflipwrapper").hide()
 }

@@ -12,51 +12,60 @@ function Box(name, price, prefixes, suffixes, cubes, image) {
 	allboxes.push(this)
 }
 allboxes = []
+rewardboxes = []
 spincooldown = false
 pull = {}
 function unbox(box){
 	if (spincooldown == false) {
 		$("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
 		spincooldown = true
-		pull = {cube: false, prefix: false, suffix: false}
+		pull = {cube: false, prefix: false}
 		ticket = randomnumber(1000)
+		prefixticket = randomnumber(1100)
 		if (ticket <=  400) {                  // light green
-			console.log('Cube Pull is light green')
 			pull.cube = box.cubes.filter(cube => cube.rarity == light_green)[randomarray(box.cubes.filter(cube => cube.rarity == light_green).length)]
-			console.log(pull.cube.name)
 		}
 		if (ticket <=  650 && ticket >= 401) { // green
-			console.log('Cube Pull is green')
 			pull.cube = box.cubes.filter(cube => cube.rarity == green)[randomarray(box.cubes.filter(cube => cube.rarity == green).length)]
-			console.log(pull.cube.name)
 		}
 		if (ticket <=  800 && ticket >= 651) { // blue
-			console.log('Cube Pull is blue')
 			pull.cube = box.cubes.filter(cube => cube.rarity == blue)[randomarray(box.cubes.filter(cube => cube.rarity == blue).length)]
-			console.log(pull.cube.name)
 		}
 		if (ticket <=  900 && ticket >= 801) { // purple
-			console.log('Cube Pull is purple')
 			pull.cube = box.cubes.filter(cube => cube.rarity == purple)[randomarray(box.cubes.filter(cube => cube.rarity == purple).length)]
-			console.log(pull.cube.name)
 		}
 		if (ticket <=  980 && ticket >= 901) { // orange
-			console.log('Cube Pull is orange')
 			pull.cube = box.cubes.filter(cube => cube.rarity == orange)[randomarray(box.cubes.filter(cube => cube.rarity == orange).length)]
-			console.log(pull.cube.name)
 		}
 		if (ticket <=  995 && ticket >= 981) { // red
-			console.log('Cube Pull is red')
 			pull.cube = box.cubes.filter(cube => cube.rarity == red)[randomarray(box.cubes.filter(cube => cube.rarity == red).length)]
-			console.log(pull.cube.name)
 		}
 		if (ticket <= 1000 && ticket >= 996){ // black
-			console.log('Cube Pull is black')
 			user.stats.blacksunboxed++
 			pull.cube = box.cubes.filter(cube => cube.rarity == black)[randomarray(box.cubes.filter(cube => cube.rarity == black).length)]
-			console.log(pull.cube.name)
 		}
-		console.log(ticket)
+		if (prefixticket <= 833  && prefixticket > 800) {                  // light green
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == light_green)[randomarray(allPrefixes.filter(prefix => prefix.rarity == light_green).length)]
+		}
+		if (prefixticket <= 866 && prefixticket > 833) { // green
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == green)[randomarray(allPrefixes.filter(prefix => prefix.rarity == green).length)]
+		}
+		if (prefixticket <=  900 && prefixticket > 866) { // blue
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == blue)[randomarray(allPrefixes.filter(prefix => prefix.rarity == blue).length)]
+		}
+		if (prefixticket <=  933 && prefixticket > 900) { // purple
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == purple)[randomarray(allPrefixes.filter(prefix => prefix.rarity == purple).length)]
+		}
+		if (prefixticket <=  1000 && prefixticket > 933) { // orange
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == orange)[randomarray(allPrefixes.filter(prefix => prefix.rarity == orange).length)]
+		}
+		if (prefixticket <=  1050 && prefixticket > 1000) { // red
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == red)[randomarray(allPrefixes.filter(prefix => prefix.rarity == red).length)]
+		}
+		if (prefixticket <= 1100 && prefixticket > 1050){ // black
+			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == black)[randomarray(allPrefixes.filter(prefix => prefix.rarity == black).length)]
+		}
+		console.log("Prefix ticket is "+prefixticket)
 		reelthecasein(ticket)
 		user.stats.unboxes++
 	} else {
@@ -80,7 +89,7 @@ switch (item) {
 			return "rgba(98, 70, 107, 0.8)"
 			break;
 	  case orange:
-			return "rgba(219, 76, 64, 0.8)"
+			return "#B86826"
 			break;
 	  case red:
 			return "rgba(191, 26, 47, 0.8)"
@@ -106,4 +115,10 @@ SuperstitiousBox = new Box("Superstitious Box", 1000, ['divine'], ['godliness'],
 HomeBox = new Box("Home Box", 750, ['homey'], ['messiness'], [brownbookcube, greenbookcube, redbookcube, lavenderbookcube, bluebedcube, redbedcube, yellowbedcube, purplebedcube, greenbedcube, bluewashingmachinecube, greenwashingmachinecube, washingmachinecube, pinkwashingmachinecube, redwashingmachinecube, glassofsodacube, glassofwatercube, glassofwinecube, greentoastercube, purpletoastercube, redtoastercube, toastercube, bluetoastercube, bluehousecube, greenhouse, pinkhouse, yellowhouse, purpletablecube, redtablecube, bluetablecube, greentablecube, browntablecube, confusedcube, deadcube, dizzycube, happycube, hungrycube, sadcube, sleepycube, straightfacecube, dogcube, catcube, astroturfcube, alarmcube, grandpasrelic, fridgecube, laptopcube, desktopcube, microwavecube, ovencube, itcries, gildedcube, tvcube, monitorcube, truereliccube], "sprites/homebox/homebox.png")
 GameBox = new Box("Video Games Box", 5000, ['gaming'], ['gameyness'], [geometrydashcube, robloxcube, keyboardcube, devildaggerscube, controllercube, inspirationi, inspirationii, grassblockcube, asepritecube, battleblockcube, enterthegungeoncube, halflifecube, hollowknightcube, theendisnighcube, oneshotcube, portalcube, thebindingofisaaccube, teamfortresstwocube, starboundcube, undertalecube, hyperlightdriftercube, tabscube, halocube, gmodcube, smashbroscube, smwcube], "sprites/gamebox/gamebox.png")
 
+TwitchBox = new Box("Twitch Box", "Not Purchasable", [],[], [fiveheadcube, clowncube, feelsbadmancube, brokenemotecube, isaaccube, kappacube, monkaScube, omegalulcube, pepecube, pogcube, poggerscube, twitchbotanguish, twitchbotcool, twitchbothappy, twitchbotkindasad, twitchbotp, twitchbotsad, twitchbotstraightface, twitchbotsurprised, twitchbotwinking, twitchbotwut, twitchheart, goldpepecube, twitchcube], "")
+rewardboxes.push(TwitchBox)
+SlimeBox = new Box("Slime Box", "Not Purchasable", [], [], [goldslimecube, goldslimejar, greengoocube, greenslimecube, greenslimejar, noirslimecube, pinkslimejar, purplegoocube, purpleslimecube, purpleslimejar, redgoocube, redslimecube, redslimejar, yellowgoocube, yellowslimecube, yinyangslime], '')
+rewardboxes.push(SlimeBox)
+FoodBox = new Box("Food Box", 1000, [], [], [breadcube, toastcube, wafflecube, pancakecube, sushicube, eggcube, chickencube, tacocube, burritocube, lettucecube, beancube, guacamolecube, canofgarbanzobeans, saltinecube, crumbycube, cupcakecube, sandwichcube, burntchickennuggetcube, chickennuggetcube, prisoncakecube, bakedpotatocube, ricecube, dumplingcube, gumcube, finewinecube, tounguecube, interdimensionalseal, donutcube], "sprites/foodbox/foodbox.png")
+KeyboardBox = new Box("Keyboard Box", 750, [], [], [acube, bcube, ccube, dcube, ecube, fcube, gcube, hcube, icube, jcube, kcube, lcube, mcube, ncube, ocube, pcube, qcube, rcube, scube, tcube, ucube, vcube, wcube, xcube, ycube, zcube, underscorecube, slashcube, tildecube], "sprites/keyboardbox/keyboardbox.png")
 selectedbox = CubeSeriesOne

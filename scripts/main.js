@@ -25,29 +25,12 @@ $("#casebuybutton").click(function(){
 		$("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
 	}
 })
-$("#caseopenbutton").click(function(){
-	if (user.boxes[selectedbox.boxid].amount >= 1 && spincooldown == false && user.inventory.length < 200) {
-		user.boxes[selectedbox.boxid].amount -= 1
-		unbox(selectedbox)
-		updateboxesdisplay()
-	} else {
-		console.log("ERROR! USER DOES NOT HAVE THE APPROPRIATE BOXES")
-	}
-})
 function updatemoneydisplay(){
 	$("#moneyamount").html("$"+(user.money/100).toLocaleString())
 }
 moneycooldown = window.setInterval(function(){
 	moneycooldown = false
 }, 100)
-$("#getmoneybutton").click(function(){
-	if (moneycooldown == false) {
-		user.money += randomnumber(500)
-		savegame()
-		updatemoneydisplay()
-		moneycooldown = true
-	}
-})
 function checklocalstorage(){
 	if(typeof localStorage.getItem("user") == 'object'){ // if user doesnt have a save
 		savegame()
@@ -64,14 +47,17 @@ function checklocalstorage(){
 }
 function savegame(){
 	localStorage.setItem("user", JSON.stringify(user))
+	localStorage.setItem("cfs", JSON.stringify(allcoinflips))
 }
 function loadsave(){
 	user = JSON.parse(localStorage.getItem("user"))
+	allcoinflips = JSON.parse(localStorage.getItem("cfs"))
 	if (user.boxes.length != allboxes.length) {
 		while (user.boxes.length < allboxes.length) {
 			user.boxes.push({box: allboxes[user.boxes.length], amount: 0})
 		}
 	}
+	user.inventory = user.inventory.filter(slot => slot.suffix == undefined)
 	if (user.exp == undefined) {user.exp = 0;}
 	if (user.skillpoints == undefined) {user.skillpoints = 0;}
 	if (user.pfp == undefined) {user.pfp = "sprites/cube16x16temp.png"}
@@ -86,17 +72,17 @@ function loadsave(){
 		user.stats.bestcube = {price: 0}
 		user.stats.tradeups = 0
 	}
-	if (user.achievements == undefined) {
-		user.achievements = []
+	if (user.maxinventory == undefined) {user.maxinventory = 200;}
+	if (user.spinspeed == undefined) {user.spinspeed = 6;}
+	if (user.mpcvariation == undefined) {user.mpcvariation = 25;}
+	if (user.achievements == undefined) {user.achievements = []}
+	if (user.questscompleted == undefined) {user.questscompleted = 0}
+	if (allcoinflips == null) {
+		allcoinflips = []
 	}
+	allcoinflips = allcoinflips.filter(coinflip => coinflip.winningside.name == undefined && coinflip.countdown == 0)
 	if (user.level == undefined) {user.level = 0}
-	for (var i = 0; i < user.inventory.length; i++) {
-		if (user.inventory[i].cube.cubeid) { // removes old cubes without ID's
-			user.inventory[i].cube.price = allcubes[user.inventory[i].cube.cubeid].price
-		} else {
-			user.inventory.splice(i, 1)
-		}
-	}
+	applyprefixestouserinventory()
 	updateprofiledisplay()
 	updateinventorydisplay()
 }
@@ -108,6 +94,7 @@ function resetsave() {
 		name: "Player",
 		betitems: []
 	}
+	allcoinflips = []
 	savegame()
 	location.reload()
 }
@@ -116,6 +103,23 @@ tryforjackpot = window.setInterval(function(){
 		startjackpot(8)
 	}
 }, 1000)
+$("#getmoneybutton").click(function(){
+	if (moneycooldown == false) {
+		user.money += randomnumber(user.mpcvariation)
+		savegame()
+		updatemoneydisplay()
+		moneycooldown = true
+	}
+})
+$("#caseopenbutton").click(function(){
+	if (user.boxes[selectedbox.boxid].amount >= 1 && spincooldown == false && user.inventory.length < user.maxinventory) {
+		user.boxes[selectedbox.boxid].amount -= 1
+		unbox(selectedbox)
+		updateboxesdisplay()
+	} else {
+		console.log("ERROR! USER DOES NOT HAVE THE APPROPRIATE BOXES")
+	}
+})
 $("#inventoryselling").click(function(){
 	sellallbelow(user.sellbelowprice)
 })

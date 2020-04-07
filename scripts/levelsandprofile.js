@@ -20,6 +20,7 @@ function updateprofiledisplay() {
 	$("#profilestatsmain").append("<div class='statcontainers' id='stattotaltradeups'>Total Trade Ups: "+user.stats.tradeups+"</div>")
 	$("#profilestatsmain").append("<div class='statcontainers' id='stataveragevalue'>Average Item Value: $"+(getaverageinventoryvalue()/100).toLocaleString()+"</div>")
 	$("#profilestatsmain").append("<div class='statcontainers' id='statskillpoints'>Skill Points: "+user.skillpoints+"</div>")
+	$("#profilestatsmain").append("<div class='statcontainers' id='statquestsdone'>Quests Completed: "+user.questscompleted+"</div>")
 }
 function getbestusercube(whichpart) {
 	if (whichpart == "name") {
@@ -83,7 +84,7 @@ levels = [
 	{exp: 11700, rewards: {skillpoints: 1, cubes: false, boxes: false, achievement: true}}, // lvl 50
 ]
 for(i=levels.length; i < 1338; i++) {
-	levels.push({exp: levels[i-1].exp+i*10, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: true}})
+	levels.push({exp: levels[i-1].exp+i*10, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: false}})
 }
 levels.push({exp: 1000000000000000000000000000, rewards: {skillpoints: 0, cubes: false, boxes: false, achievement: false}})
 function getuserlevel() {
@@ -172,8 +173,8 @@ function getlevelicon() {
 	if (user.level >= 400 && user.level < 500) {
 		return "sprites/levelicons/level400.png"
 	}
-	if (user.level >= 500 && user.level < 1000) {
-		return "sprites/levelicons/level500.png"
+	if (user.level >= 500 && user.level < 100) {
+		return "sprites/levelicons/level50.png"
 	}
 	if (user.level >= 1000) {
 		return "sprites/levelicons/level1000.png"
