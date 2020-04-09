@@ -127,11 +127,9 @@ function checkforlevelup(){
 	}
 }
 function giveexp(exp) {
-	if(user.level != 50) {
 		user.exp += exp
 		checkforlevelup()
 		updateprofiledisplay()
-	}
 }
 function displaylevels() {
 	$("#levelwrapper").html('')
