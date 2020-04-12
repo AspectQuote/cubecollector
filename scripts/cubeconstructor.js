@@ -413,4 +413,6 @@ const slashcube = new Cube("/", yellow, "The / key", 858732, "sprites/keyboardbo
 const tildecube = new Cube("~", yellow, "The ~ key", 971125, "sprites/keyboardbox/tildekey.png")
 const interdimensionalseal = new Cube("Interdimensional Seal", yellow, "Tastes like toothpaste...", 1102900, "sprites/interdimensionalseal.png")
 const donutcube = new Cube("Donut Cube", yellow, "delicious. finally; some good food.", 1001722, "sprites/foodbox/donutcube.png")
+const dragonglass = new Cube("Dragonglass", yellow, "ridiculously expensive, environmentally safe alternative to neutron fuel", 2106426, 'sprites/mythicalmaterials/dragonglass.png')
+const fortunebone = new Cube("Fortunebone", yellow, "part of an ancient being that turned everything he touched into gold.", 1900138, 'sprites/mythicalmaterials/fortunebone.png')
 // = new Cube()
