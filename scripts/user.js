@@ -5,6 +5,14 @@ user = {
 	name: "Player",
 	betitems: []
 }
+val=0;
+function getplayerinventoryvalue(){
+	val=0;
+	for (i=0; i < user.inventory.length; i++) {
+		val += user.inventory[i].cube.price
+	}
+	return val
+}
 function constructplayersboxes(boxes) {
 	user.boxes = boxes
 }

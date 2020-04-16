@@ -78,6 +78,7 @@ function updatetabdisplay(tab) {
       hidecurrenttab()
       currenttab = "cubepedia"
       $("#cubepediawrapper").show()
+      updatecubepediadisplay()
       updateinventorydisplay(false)
       break;
     default:

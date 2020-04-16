@@ -3,7 +3,7 @@ function Cube(name, rarity, flavortext, price, image, box) {
 	this.rarity = rarity
 	this.flavortext = flavortext
 	this.price = price
-	this.image = image
+	this.image = image || 'sprites/unknown.png'
 	this.box = box
 	this.cubeid = cubeid
 	cubeid++
@@ -351,18 +351,18 @@ mcube = new Cube('M', purple, 'The M key', 1577, 'sprites/keyboardbox/mkey.png')
 ncube = new Cube('N', purple, 'The N key', 1202, 'sprites/keyboardbox/nkey.png')
 ocube = new Cube('O', purple, 'The O key', 974, 'sprites/keyboardbox/okey.png')
 pcube = new Cube('P', purple, 'The P key', 1308, 'sprites/keyboardbox/pkey.png')
-qcube = new Cube('Q', orange, 'The Q key', 33022, 'sprites/keyboardbox/qkey.png')
-rcube = new Cube('R', orange, 'The R key', 14712, 'sprites/keyboardbox/rkey.png')
-scube = new Cube('S', orange, 'The S key', 65683, 'sprites/keyboardbox/skey.png')
-tcube = new Cube('T', orange, 'The T key', 82183, 'sprites/keyboardbox/tkey.png')
-ucube = new Cube('U', red, 'The U key', 90110, 'sprites/keyboardbox/ukey.png')
-vcube = new Cube('V', red, 'The V key', 99230, 'sprites/keyboardbox/vkey.png')
-wcube = new Cube('W', red, 'The W key', 95694, 'sprites/keyboardbox/wkey.png')
-xcube = new Cube('X', black, 'The X key', 140130, 'sprites/keyboardbox/xkey.png')
-ycube = new Cube('Y', black, 'The Y key', 198565, 'sprites/keyboardbox/ykey.png')
-zcube = new Cube('Z', black, 'The Z key', 149999, 'sprites/keyboardbox/zkey.png')
-zcube = new Cube('.', black, 'The . key', 159999, 'sprites/keyboardbox/periodkey.png')
-// Mythical Materials
+qcube = new Cube('Q', orange, 'The Q key', 9022, 'sprites/keyboardbox/qkey.png')
+rcube = new Cube('R', orange, 'The R key', 9712, 'sprites/keyboardbox/rkey.png')
+scube = new Cube('S', orange, 'The S key', 9683, 'sprites/keyboardbox/skey.png')
+tcube = new Cube('T', orange, 'The T key', 10183, 'sprites/keyboardbox/tkey.png')
+ucube = new Cube('U', red, 'The U key', 15110, 'sprites/keyboardbox/ukey.png')
+vcube = new Cube('V', red, 'The V key', 13230, 'sprites/keyboardbox/vkey.png')
+wcube = new Cube('W', red, 'The W key', 12694, 'sprites/keyboardbox/wkey.png')
+xcube = new Cube('X', black, 'The X key', 90130, 'sprites/keyboardbox/xkey.png')
+ycube = new Cube('Y', black, 'The Y key', 128565, 'sprites/keyboardbox/ykey.png')
+zcube = new Cube('Z', black, 'The Z key', 109999, 'sprites/keyboardbox/zkey.png')
+zcube = new Cube('.', black, 'The . key', 119999, 'sprites/keyboardbox/periodkey.png')
+// Mythical Materials Box
 lead = new Cube('Lead', light_green, 'do not put your mouth on this.', 0, 'sprites/mythicalmaterials/lead.png')
 lightstone = new Cube('Lightstone', green, 'super durable, emits light and shatters into dust under immense heat', 1396, 'sprites/mythicalmaterials/lightstone.png')
 demonsteel = new Cube('Demonsteel', green, 'highly heat resistant, this metal is used by hells armies to take entire cities in minutes', 998, 'sprites/mythicalmaterials/demonsteel.png')
@@ -437,6 +437,29 @@ vanillabeancube = new Cube('Vanilla Bean Cube', black, 'dee-lish!', 180099, 'spr
 lemoncube = new Cube('Lemon Cube', purple, 'yellow lime', 1433, 'sprites/foodboxtwo/lemon.png')
 limecube = new Cube('Lime Cube', purple, 'green lemon', 1433, 'sprites/foodboxtwo/lime.png')
 blueberrycube = new Cube('Blueberry Cube', yellow, 'berry but blue!', 1199999, 'sprites/foodboxtwo/blueberry.png')
+// Video Games 2
+vrcube = new Cube('VR Cube', red, 'virtual reality. the future of gaming? or odd fad?', 74877, 'sprites/gameboxtwo/vrcube.png')
+smmtwocube = new Cube('Super Mario Maker 2 Cube', purple, 'supah mario bros but designed by a twelve year old!', 5547, 'sprites/gameboxtwo/smm2.png')
+splatooncube = new Cube('Splatoon Cube', green, 'paintball but with way more paint than ball!', 466, 'sprites/gameboxtwo/splatoon.png')
+rainworldcube = new Cube('Rain World Cube', light_green, 'super cool survival-progression game', 114, 'sprites/gameboxtwo/rainworld.png')
+krunkercube = new Cube('Krunker Cube', orange, 'though its graphics and fanbase are fairly low-tier, I believe that this is one of the best FPSes of all time!', 17659, 'sprites/gameboxtwo/krunker.png')
+mariokartcube = new Cube('Mario Kart Cube', blue, 'bumper carts? nah. bumper cart with mario in it? sign me up!', 2456, 'sprites/gameboxtwo/mariokart.png')
+csgocube = new Cube('CS:GO Cube', black, 'tactical FPS based around positioning and playing smart. there are also skins and microtransactions!', 408855, 'sprites/gameboxtwo/csgo.png')
+cssourcecube = new Cube('Counter Strike: Source Cube', red, 'some say that the movement and the aiming in this game feels like plastic (youd be right) but there is no denying that this game and its engine have spawned the best modders and maps in any game ever', 89768, 'sprites/gameboxtwo/cssource.png')
+csonepointsixcube = new Cube('CS 1.6 Cube', red, 'some say that this game looks like absolute garbage (youd be right) but there is no denying that this game has one of the highest skill ceilings ever!', 89768, 'sprites/gameboxtwo/cs16.png')
+wheatleycube = new Cube('Wheatley Cube', green, 'talky, british core from the portal series', 570, 'sprites/gameboxtwo/wheatley.png')
+fnafcube = new Cube('Five Nights At Freddys Cube', light_green, 'hugely popular in 2014-2017, fnaf has been the source of memes and critical remarks for a long time.', 186, 'sprites/gameboxtwo/fnaf.png')
+piskelcube = new Cube('Piskel Cube', blue, 'epic website I also use to make the cubes in this game!', 1998, 'sprites/gameboxtwo/piskel.png')
+osucube = new Cube('Osu! Cube', green, 'rhythm based japanese-ish game, kinda fun', 766, 'sprites/gameboxtwo/osu.png')
+terrariacube = new Cube('Terraria Cube', purple, 'best sandbox game of all time. even better than minecraft. I grew up with this game, and Im so sad to see its last hurrah this summer.', 5597, 'sprites/gameboxtwo/terraria.png')
+supermetroidcube = new Cube('Super Metroid Cube', green, 'pretty fun, although the movement feels pretty clunky', 442, 'sprites/gameboxtwo/supermetroid.png')
+kirbycube = new Cube('Kirby Cube', blue, 'the kirbster, succin up everything!', 2289, 'sprites/gameboxtwo/kirby.png')
+dededecube = new Cube('King Dedede Cube', blue, 'peak male performance; a true king', 2289, 'sprites/gameboxtwo/dedede.png')
+worldofgoocube = new Cube('World Of Goo Cube', purple, 'you guys know this game? like, this was installed on every library computer of yesteryear, but I never really got around to playing it.', 5027, 'sprites/gameboxtwo/worldofgoo.png')
+silksongcube = new Cube('Sliksong Cube', black, 'the hypeeeeeeee! the extremely anticipated sequel to the kickstarter success of hollow knight! now, you dont play as the knight! how cool is that!?', 554765, 'sprites/gameboxtwo/silksong.png')
+cheatingcube = new Cube('Cheating Cube', yellow, 'cheaters. unfair advantage taking, fun ruining nerds', 1987000, 'sprites/gameboxtwo/cheating.png')
+saltcube = new Cube('Salt Cube', black, 'HOW DID HE KILL ME!? HE IS OBVIOUSLY HACKING!!!!!!!!!!', 509090, 'sprites/gameboxtwo/salt.png')
+
 // gold Cubes
 const adamantiumcube = new Cube("Adamantium Cube", yellow, "A small piece of the rarest metal on earth.", 1539843, "sprites/golds/adamantiumcube.png")
 const bluenebulacube = new Cube("Hydrogen Nebula Cube", yellow, "The hydrogen nebula, masterfully recreated in a glass cube", 1349273, "sprites/golds/bluenebulacube.png")

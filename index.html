@@ -95,23 +95,19 @@
 			<div id="homeheader" style="width: 100%; text-align: center; padding: 10px; font-size: x-large; color: orange;"></div>
 			<div id="homemain" style="width: 60%; text-align: left; padding-left: 5%; padding-right: 5%; height: 80%; border-radius: 25px 25px 0% 0%; background-color: #1C1C1C; position: absolute; bottom: 0;">
 				<div id="announcements">
-					<h1>Patch 4-7-20</h1>
+					<h1>Patch 4-16-20</h1>
 					<div class="homeheader">How to play</div>
-					<div class="homedata">You can open boxes, and get cubes. Each cube has its own rarity (and price!) and each box has its own cubes. When you get a cube, you may click on it to inspect it, and if you double click on it, you can sell it. A few planned features will give lower-tier cubes more uses ;)</div>
-					<div class="homeheader">Double or Nothing!</div>
-					<div class="homedata">You can now coinflip for a 50/50 chance of doubling the value you put in!</div>
+					<div class="homedata">You can open boxes, and get cubes. Each cube has its own rarity (and price!) and each box has its own cubes. When you get a cube, you may click on it to inspect it, and if you double click on it, you can sell it.</div>
+					<div class="homeheader">You unlearned!</div>
+					<div class="homedata">You can now reset your skill points at the cost of 10% of your cash!</div>
 					<div class="homeheader">Discord</div>
 					<div class="homedata">Join the site's discord in order to participate in events like creating your own cubes for the site, and discussing/suggesting features for the site! You may also report bugs to me on the discord; just ping @AspectQuote (Feel free to invite your friends too!) You can join the discord here: <a href="https://discordapp.com/invite/C3U8scK" target="_blank">discord</a></div>
-					<div class="homeheader">Mad Skills!!</div>
-					<div class="homedata">Spend your skill points to get some helpful perks! Be careful though, because after level 50, you cannot get any more of them!</div>
-					<div class="homeheader">I have one reQUEST...</div>
-					<div class="homedata">Fulfill quests to get special cubes!</div>
-					<div class="homeheader">Godly Update!</div>
-					<div class="homedata">Opening boxes now yeilds a 3/11 chance to get a prefix! prefixes alter the values of cubes positively! (and negatively!)</div>
+					<div class="homeheader">Cubepedia!</div>
+					<div class="homedata">See what cubes you need to collect, and which ones you have alrady gotten!</div>
 					<div class="homeheader">Update info</div>
-					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">optimizations</li><li class="homedata">jackpot bot fixes</li><li class="homedata">100+ more cubes</li><li class="homedata">100 prefixes</li></div>
+					<div class="homedata">The patch that came with this update includes <ul><li class="homedata">optimizations</li><li class="homedata">jackpot ui fixes</li><li class="homedata">Game Box 2</li><li class="homedata">Keyboard Box nerf</li><li class="homedata">cubepedia</li></div>
 					<div class="homeheader">Other News</div>
-					<div class="homedata">More cubes coming soon!</div>
+					<div class="homedata">Checklist Complete! More minigames coming soon!</div>
 				</div>
 			</div>
 		</div>
@@ -241,7 +237,27 @@
 			<div id='skillpointsheadersubtext' style='font-size: x-small; padding-bottom: 30px; border-bottom: 1px solid black; text-align: center;'>0 Skill Points To Spend</div>
 			<div id='skillpointsmain' style='height: 90%;'></div>
 		</div>
-		<div id="cubepediawrapper">Cubepedia Coming Soon!</div>
+		<div id="cubepediawrapper">
+			<div id="cubepediaheader" style='font-size: large; font-weight: bold; padding-top: 20px; padding-bottom: 5px; text-align: center;'>Cubepedia</div>
+			<div id="cubepediaheadersubtext" style='font-size: x-small; font-style: italics; padding-bottom: 20px; text-align: center;'>0/0 cubes found (0%)</div>
+			<div id="cubepediamain" style='height: 88%; position: relative;'>
+				<div id="cubepediacubes" style='height: 100%; display: flex; flex-wrap: wrap; overflow-y: scroll; overflow-x: hidden;'>Cubepedia Cubes</div>
+				<div id="cubepediaoverlay" style='height: 100%; position: absolute; top: 0; left: 0; width: 100%; background-color: rgba(25, 25, 25, 0.8); z-index: 10;'>
+					<div id='cubepediaoverlayheader' style='padding: 20px; text-align: center; position: relative;'>
+						<div id='cubepediaoverlayname'>Name</div>
+						<div id='cubepediaoverlayclosebutton' style='position: absolute; top: 5px; right: 10px; cursor: pointer;'>x</div>
+					</div>
+					<div id='cubepediaoverlayimage' style='padding-bottom: 30px; text-align: center;'><img src='sprites/unknown.png' style='width: 100px; height: 100px; filter: grayscale(100%)'/></div>
+					<div id='cubepediaoverlaystats'>
+						<div id='cubepediaoverlaybox' style='padding-left: 20px; padding-bottom: 5px; font-size: small;'><img src='sprites/cubepediaicons/boxicon.png' style='height: 16px; display: inline; padding-right: 5px;' />Box</div>
+						<div id='cubepediaoverlayprice' style='padding-left: 20px; padding-bottom: 5px; font-size: small;'><img src='sprites/cubepediaicons/priceicon.png' style='height: 16px; display: inline; padding-right: 5px;' />Price</div>
+						<div id='cubepediaoverlayrarity' style='padding-left: 20px; padding-bottom: 5px; font-size: small;'><img src='sprites/cubepediaicons/rarityicon.png' style='height: 16px; display: inline; padding-right: 5px;' />Rarity</div>
+						<div id='cubepediaoverlaydescription' style='padding-left: 20px; padding-bottom: 5px; font-size: small;'><img src='sprites/cubepediaicons/descicon.png' style='height: 16px; display: inline; padding-right: 5px;' />Description</div>
+						<div id='cubepediaoverlayobtainability' style='padding-left: 20px; font-size: small;'>Obtainable by</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div id="questswrapper">
 			<div id="questsheader" style="font-size: large; padding-top: 20px; padding-bottom: 20px; margin-bottom: 5px; text-align: center; border-bottom: 1px solid black;">Quest Board</div>
 			<div id="questsmain" style='display: flex; flex-wrap: wrap; height: 70%;'></div>
@@ -276,7 +292,6 @@
 							<div id="jpname" class="jpheaderstuff">
 								<h4>Jackpot</h4>
 							</div>
-							<img id="jpcubeinspect" src="sprites/cube16x16temp.png"  class="jpheaderstuff" />
 							<div id="lastjpwinnerinfotext" class="jpheaderstuff">
 								Won with X$ with X%, on ticket X
 							</div>
@@ -350,20 +365,20 @@
 				</div>
 			</div>
 			<div class="inventoryfooter">
-				<div id="getmoneybutton" style=" text-align: center; width: 100%; height: 100%;">
+				<div id="getmoneybutton" style="text-align: center; width: 100%; height: 100%;">
 					click to get money
 				</div>
 			</div>
 		</div>
 		</div>
 	</body>
-	<div style="position: absolute; bottom: 0; left: 0; width: 25%; overflow: hidden;" id="usermessages"></div>
+	<div style="position: absolute; bottom: 0; left: 0; width: 25%; overflow: hidden; z-index: 1000;" id="usermessages"></div>
 </html>
 <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
 <link rel=stylesheet type=text/css href=styles/styles.css>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="scripts/main.js"></script>
 <script src="scripts/user.js"></script>
+<script src="scripts/main.js"></script>
 <script src="scripts/cubeconstructor.js"></script>
 <script src="scripts/boxconstructor.js"></script>
 <script src="scripts/prefixconstructor.js"></script>
@@ -378,5 +393,6 @@
 <script src="scripts/quests.js"></script>
 <script src="scripts/coinflip.js"></script>
 <script src="scripts/skillpoints.js"></script>
+<script src="scripts/cubepedia.js"></script>
 <script src="scripts/finishers.js"></script>
 <link rel=stylesheet type=text/css href=styles/styles.css>

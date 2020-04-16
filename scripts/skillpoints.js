@@ -51,6 +51,26 @@ function updateskillsdisplay() {
   if ((Math.abs((user.spinspeed-6))/0.25)+1 >= 9) {
     $("#purchaseupgradebutton1").html('Purchase Upgrade <br/><span style="font-size: x-small; color: #ba7300;">MAX LEVEL</span>')
   }
+  $("#skillpointsmain").append('<div style="position: relative; padding: 10px; text-align: center;"><div id="resetskillsbutton" style="padding: 10px; background-color: #820000; color: #4a0000; border: 3px solid #4a0000; border-radius: 3px; display: inline-block; width: auto; cursor: pointer;">Refund Skill Points (10% of cash)</div></div>')
+  $("#resetskillsbutton").click(function(){
+    while (user.maxinventory > 200) {
+      user.skillpoints += ((user.maxinventory-200)/50)
+      user.maxinventory -= 50
+    }
+    while (user.spinspeed < 6) {
+      user.skillpoints += (Math.abs((user.spinspeed-6))/0.25)
+      user.spinspeed += 0.25
+    }
+    while (user.mpcvariation > 25) {
+      user.skillpoints += ((user.mpcvariation-25)/25)
+      user.mpcvariation -= 25
+    }
+    user.money = user.money*0.9
+    savegame()
+    updatemoneydisplay()
+    updateskillsdisplay()
+    updateinventorydisplay()
+  })
   $("#purchaseupgradebutton1").click(function(){
     if ((Math.abs((user.spinspeed-6))/0.25)+1 <= user.skillpoints && user.spinspeed > 4) {
       user.skillpoints -= (Math.abs((user.spinspeed-6))/0.25)+1

@@ -2,6 +2,7 @@
 reelContainer = document.querySelector('#entrycontainer');
 reel = document.querySelector('#entries');
 function reelthecasein(ticket) {
+  savegame()
 console.log("spinning case with ticket "+ ticket)
 reelNumber = 12;
 reelWidth = reel.offsetWidth;

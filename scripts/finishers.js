@@ -68,7 +68,10 @@ function updateinventorydisplay(jackpotmode, tradeupmode, cfmode) {
 	   $("#prefixoverlay"+i).html(user.inventory[i].prefix.namespace)
 	 }
 	 createclickablesellable(i , jackpotmode, tradeupmode, cfmode)
-     }
+	 if (user.foundcubes.includes(user.inventory[i].cube.cubeid) == false){
+	    user.foundcubes.push(user.inventory[i].cube.cubeid)
+	 }
+  }
   if (currenttab == "profile") {
     updateprofiledisplay()
   }
@@ -84,20 +87,12 @@ function getprefixrarity(slot) {
     return "white"
   }
 }
-val=0;
-function getplayerinventoryvalue(){
-	val=0;
-	for (i=0; i < user.inventory.length; i++) {
-		val += user.inventory[i].cube.price
-	}
-	return val
-}
 updatemoneydisplay()
 function updateboxesdisplay() {
   $("#boxes").html('')
   $("#boxes").unbind()
   for (var i = 0; i < allboxes.length; i++) {
-    if(allboxes[i].name != "Twitch Box" && allboxes[i].name != "Slime Box") {
+    if(allboxes[i].name != "Twitch Collection" && allboxes[i].name != "Slime Collection") {
       $("#boxes").append("<div class='boxiconwrapper' style='display: inline-block; position: relative;'><img class='boxicons' id='box"+i+"' src='"+allboxes[i].image+"'><div class='itempriceoverlay' style='color: white;'>$"+(allboxes[i].price/100).toLocaleString()+", "+user.boxes[i].amount+" owned</div></div>")
       createclickablebox(i)
     }
@@ -113,6 +108,7 @@ updatemoneydisplay()
 updateinventorydisplay()
 updateboxesdisplay()
 updatecoinflipdisplay()
+updatecubepediadisplay()
 updateskillsdisplay()
 updatetabdisplay("home")
 $("#createcfcontainer").hide()
