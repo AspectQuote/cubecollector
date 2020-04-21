@@ -4,7 +4,7 @@ function Quest(questdata){
 	this.requestedcube = questdata.requestedcube
 	this.getdifficulty = function(){
 		if (this.requestedcube.prefix != false) {
-			return getraritytier(this.requestedcube.cube.rarity) + getraritytier(this.requestedcube.prefix.rarity)
+			return getraritytier(this.requestedcube.cube.rarity)*getraritytier(this.requestedcube.prefix.rarity)+10
 		} else {
 			return getraritytier(this.requestedcube.cube.rarity)
 		}
@@ -29,38 +29,38 @@ function getrewardcubes(difficulty) {
 		if (difficulty <=  5 && difficulty > 2) {
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == green)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == green).length)])
 		}
-		if (difficulty <=  10 && difficulty > 7) {
+		if (difficulty <=  7 && difficulty > 5) {
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == blue)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == blue).length)])
 		}
-		if (difficulty <=  15 && difficulty > 10) {
+		if (difficulty <=  13 && difficulty > 7) {
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == purple)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == purple).length)])
 		}
-		if (difficulty <=  20 && difficulty > 15) {
+		if (difficulty <=  18 && difficulty > 13) {
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == orange)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == orange).length)])
 		}
-		if (difficulty <=  25 && difficulty > 20) {
+		if (difficulty <=  22 && difficulty > 18) {
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == red)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == red).length)])
 		}
-		if (difficulty <= 30 && difficulty > 25){
+		if (difficulty <= 100 && difficulty > 22){
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == black)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == black).length)])
 		}
-		if (difficulty <= 30 && difficulty > 25){
+		if (difficulty > 100){
 			rewardcube = new Immutablecube(rewardbox.cubes.filter(cube => cube.rarity == yellow)[randomarray(rewardbox.cubes.filter(cube => cube.rarity == yellow).length)])
 		}
 	return rewardcube
 }
 function getraritytier(rarity) {
 	if (rarity == light_green) {
-		return 1
-	}
-	if (rarity == green) {
 		return 2
 	}
-	if (rarity == blue) {
+	if (rarity == green) {
 		return 3
 	}
+	if (rarity == blue) {
+		return 4
+	}
 	if (rarity == purple) {
-		return 5
+		return 7
 	}
 	if (rarity == orange) {
 		return 10
@@ -73,19 +73,22 @@ function getraritytier(rarity) {
 	}
 }
 function getdifficultydisplay(difficulty) {
-	if (difficulty <= 5) {
+	if (difficulty <= 4) {
 		return difficulty+" (Easy)"
 	}
-	if (difficulty <= 10 && difficulty > 5) {
+	if (difficulty <= 8 && difficulty > 4) {
 		return difficulty+" (Medium)"
 	}
-	if (difficulty <= 15 && difficulty > 10) {
+	if (difficulty <= 15 && difficulty > 8) {
 		return difficulty+" (Hard)"
 	}
-	if (difficulty <= 20 && difficulty > 15) {
+	if (difficulty < 20 && difficulty > 15) {
 		return difficulty+" (Very hard)"
 	}
-	if (difficulty <= 40 && difficulty > 20) {
+	if (difficulty < 30 && difficulty >= 20) {
+		return difficulty+" (Ungodly difficult)"
+	}
+	if (difficulty >= 30) {
 		return difficulty+" (Impossible)"
 	}
 }

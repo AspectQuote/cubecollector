@@ -185,7 +185,6 @@ function userenterjp(item) {
 		user.betitems = []
 		user.bet = item.cube.price
 		user.betitems.push(item)
-		console.log(item)
 		jptotal += user.bet
 		botsinjp.push(user)
 		addtojpreel(botsinjp.indexOf(user))
@@ -216,7 +215,6 @@ jpreelContainer = document.querySelector('#jpentrycontainer');
 jpreel = document.querySelector('#jpentries');
 function spinthejp(ticket) {
 	jpspinning = true
-	console.log("spinning jackpot with ticket "+ ticket)
 	jpwinningticket = ticket
 	jpreelNumber = 12;
 	jpreelWidth = jpreel.offsetWidth;

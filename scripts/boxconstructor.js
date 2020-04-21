@@ -65,7 +65,6 @@ function unbox(box){
 		if (prefixticket <= 1100 && prefixticket > 1050){ // black
 			pull.prefix = allPrefixes.filter(prefix => prefix.rarity == black)[randomarray(allPrefixes.filter(prefix => prefix.rarity == black).length)]
 		}
-		console.log("Prefix ticket is "+prefixticket)
 		reelthecasein(ticket)
 		user.stats.unboxes++
 	} else {
@@ -101,7 +100,7 @@ switch (item) {
 				return "rgba(252, 215, 87, 0.8)"
 				break;
 		default:
-console.log("invalid color!!")
+		return '#000000'
 	}
 }
 
@@ -124,6 +123,6 @@ MythicalMaterialsBox = new Box("Mythical Materials Box", 5000, [], [], [dragongl
 SolarBox = new Box("Solar Box", 1000, [], [], [mercurycube, venuscube, earthcube, marscube, jupitercube, saturncube, uranuscube, neptunecube, plutocube, asteroidcube, meteorcube, cometcube, starcube, suncube, solarnebulacube, milkywaygalaxycube, mooncube, blackholecube, universecube, wormholecube, satellitecube, spacedust, lifecube], "sprites/solarbox/solarbox.png")
 FoodBoxTwo = new Box("Food Box 2", 750, [], [], [tomatocube, eggplantcube, peachcube, carrotcube, celerycube, beefcube, porkcube, baconcube, spicescube, chocolatecube, whitechocolatecube, strawberrycube, bananacube, blackberrycube, pomegranatecube, raspberrycube, fishcube, scallioncube, pumpkinpiecube, icecreamcube, marshmallowcube, vanillabeancube, lemoncube, limecube, blueberrycube], "sprites/foodboxtwo/foodboxtwo.png")
 GameBoxTwo = new Box("Game Box 2", 2500, [], [], [vrcube, smmtwocube, splatooncube, rainworldcube, krunkercube, mariokartcube, csgocube, cssourcecube, csonepointsixcube, wheatleycube, fnafcube, piskelcube, osucube, terrariacube, supermetroidcube, kirbycube, dededecube, worldofgoocube, silksongcube, cheatingcube, saltcube], "sprites/gameboxtwo/gameboxtwo.png")
-
+WebsiteBox = new Box("Website Box", 2500,[], [], [webmdcube, tumblrcube, schoologycube, bingcube, facebookcube, wikipediacube, patreoncube, fourchancube, redditcube, instagramcube, thehubcube, netflixcube, rulethirtyfourcube, disneypluscube, youtubecube, iositescube, discordcube, amazoncube, googlecube, cubecollectorcube, csgoclickerclassiccube, csgoclickernewcube, githubcube, steamcube], "sprites/websitebox/websitebox.png")
 
 selectedbox = CubeSeriesOne

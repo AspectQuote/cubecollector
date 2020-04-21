@@ -41,9 +41,6 @@ function updatecoinflipdisplay() {
       }
     }
     createjoincfbutton(i)
-    if (allcoinflips[i].winningside.image == undefined) {
-      allcoinflips.splice(i, 1)
-    }
   }
 }
 function getcfjointext(cfindex) {
@@ -86,10 +83,8 @@ function createcf(name, items, side, pfp) {
     if (allcoinflips.length < maxcoinflips) {
       if (side == 'edgeside') {
         allcoinflips.push(new Coinflip({name: name, betitems: items, pfp: pfp}, false))
-        console.log({name: name, betitems: items, pfp: pfp})
       } else if (side == 'faceside') {
         allcoinflips.push(new Coinflip(false, {name: name, betitems: items, pfp: pfp}))
-        console.log({name: name, betitems: items, pfp: pfp})
       }
       updatecoinflipdisplay()
     }
@@ -229,7 +224,7 @@ function flipthecoin(cfindex) {
       allcoinflips[cfindex].countdown = 'GAME OVER - FACE SIDE WINS'
       $("#coinflipfacesidename"+cfindex).css('text-shadow',"0px 0px 4px white")
     } else {
-      console.log('invalid winning side!')
+
     }
     if (allcoinflips[cfindex].winningside.name == user.name) {
       for (i=0; i < allcoinflips[cfindex].faceside.betitems.length; i++) {
@@ -321,7 +316,7 @@ function displaycfoverlay(whatmenu, side, cfindex) {
     })
     updatecfoverlaycompletebutton(whatmenu)
   } else {
-    console.log('invalid menu type!')
+
   }
 }
 function finishmakingcf() {
@@ -359,14 +354,14 @@ function updatecfoverlaycompletebutton(menutype, cfindex) {
     }
     })
   } else {
-    console.log('invalid menu type!')
+
   }
 }
 function hidecfoverlay() {
   $("#createcfcontainer").hide()
   $("#cfdisplays").show()
 }
-$("#cffooter").click(function(){
+$("#createcfbutton").click(function(){
   displaycfoverlay('makingcf')
 })
 $("#edgesideselection").click(function(){
@@ -394,7 +389,7 @@ function botmakecf() {
   if (bet.length > 0) {
     createcf(randombot.name, bet, randomcfside(), "sprites/coinflip/botpfp.png")
   } else {
-    console.log('couldnt make cf!')
+
   }
   savegame()
 }
@@ -484,7 +479,7 @@ function createjoincfbutton(index) {
 }
 window.setInterval(function(){
   if(randomnumber(100) == 1) {
-    if(randomnumber(3)+allcoinflips.filter(coinflip => coinflip.edgeside.name == user.name || coinflip.faceside.name == user.name).length >= 3) {
+    if(randomnumber(3)+allcoinflips.filter(coinflip => coinflip.edgeside.name == user.name || coinflip.faceside.name == user.name).length >= 3 && allcoinflips.filter(coinflip => coinflip.faceside == false || coinflip.edgeside == false).length >= 1) {
       botjoinrandomcf()
     } else {
       botmakecf()

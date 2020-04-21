@@ -111,7 +111,7 @@ addprefix("funny", 1.2, blue)
 function applyprefixestouserinventory() {
 	for (var i = 0; i < user.inventory.length; i++) {
 		if (user.inventory[i].prefix != false) {
-			if(user.inventory[i].cube.price == trueallcubes[user.inventory[i].cube.cubeid].price) {
+			if(user.inventory[i].cube.price == trueallcubes[user.inventory[i].cube.cubeid].price && user.inventory[i].cube.name == trueallcubes[user.inventory[i].cube.cubeid].name) {
 				user.inventory[i].cube.price = Math.floor((user.inventory[i].cube.price*user.inventory[i].prefix.bonus)*100)/100
 				user.inventory[i].cube.name = user.inventory[i].prefix.namespace+" "+user.inventory[i].cube.name
 			}

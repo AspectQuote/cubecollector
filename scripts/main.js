@@ -4,6 +4,7 @@ function randomnumber(max) {
 function randomarray(arraylength) {
 	return Math.floor(Math.random()*arraylength)
 }
+document.addEventListener('contextmenu', event => event.preventDefault());
 white = "white"
 light_green = "light green"
 green = "green"
@@ -15,7 +16,60 @@ black = "black"
 yellow = "yellow"
 moneyword = ''
 fancymoneyword = ''
-
+loadingflavors = [
+	'Stacking the cubes',
+	'Counting the cubes',
+	'Trading the cubes up',
+	'Writing the Cubepedia',
+	'Admiring the cubes',
+	'Unboxing Cube Series #2',
+	'Unboxing a light green cube',
+	'Manufacturing more cubes',
+	'Probably something to do with cubes',
+	'Pressing Ctrl+W',
+	'Clicking a bunch of times',
+	'Losing a Coinflip',
+	'Winning a Coinflip',
+	'Losing a Jackpot',
+	'Winning a Jackpot',
+	'Palette-swapping the cubes',
+	'Offending the cubes',
+	'Aspect says thanks!',
+	'Join our discord!',
+	"I didn't make this loading animation",
+	"Also try csgoclicker.net!",
+	'Adding more cubes',
+	'Reading search history',
+	'Not sending your personal info to dubai',
+	'Wasting my life on video games',
+	'There are three periods next to this sentence',
+	'The cops cannot see you if you do not move',
+	'Removing 40% of the sodium',
+	'Adding 20% more autism',
+	'Removing all the headcrabs',
+	'Banning IvanTheSpaceBiker',
+	'Not taking fall damage',
+	'Aiming for the head inflicts critical damage',
+	'Cooking more biscuits',
+	'Asking if we are there yet',
+	'Becoming self aware',
+	'Googling the answers to the SAT',
+	'Getting baited',
+	'Not unlocking any achievements',
+	'Deleting all the cubes'
+]
+$("#loadingflavortext").html(loadingflavors[randomarray(loadingflavors.length)]+"... <br/><br/> LOADING")
+$("#homewrapper").hide()
+$("#achievementwrapper").hide()
+$("#unboxingwrapper").hide()
+$("#tradeupswrapper").hide()
+$("#settingswrapper").hide()
+$("#jpwrapper").hide()
+$("#profilewrapper").hide()
+$("#questswrapper").hide()
+$("#skillpointswrapper").hide()
+$("#cubepediawrapper").hide()
+$("#coinflipwrapper").hide()
 $("#casebuybutton").click(function(){
 	if (user.money >= selectedbox.price) {
 		user.boxes[selectedbox.boxid].amount += 1
@@ -52,6 +106,10 @@ function savegame(){
 function loadsave(){
 	user = JSON.parse(localStorage.getItem("user"))
 	allcoinflips = JSON.parse(localStorage.getItem("cfs"))
+	cfid = Math.max.apply(Math, allcoinflips.map(function(o) { return o.cfid; }))+1 || 0
+	if (cfid == -Infinity || cfid == Infinity) {
+		cfid = 0
+	}
 	if (user.boxes.length != allboxes.length) {
 		while (user.boxes.length < allboxes.length) {
 			user.boxes.push({box: allboxes[user.boxes.length], amount: 0})
@@ -81,6 +139,7 @@ function loadsave(){
 	if (allcoinflips == null) {
 		allcoinflips = []
 	}
+	if (user.featureditems == undefined) {user.featureditems = [false, false, false, false, false, false];}
 	allcoinflips = allcoinflips.filter(coinflip => coinflip.winningside.name == undefined && coinflip.countdown == 0)
 	if (user.level == undefined) {user.level = 0}
 	applyprefixestouserinventory()

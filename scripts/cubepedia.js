@@ -16,7 +16,7 @@ for (i = 0; i < trueallcubes.length; i++) {if (trueallcubes[i].rarity == black) 
 for (i = 0; i < trueallcubes.length; i++) {if (trueallcubes[i].rarity == yellow)      {cubepediacubesdisplayarray.push(trueallcubes[i])}}
 $("#cubepediacubes").html('')
 for (i = 0; i < cubepediacubesdisplayarray.length; i++){
-	$("#cubepediacubes").append("<div id='cubepediaentry"+cubepediacubesdisplayarray[i].cubeid+"' style='cursor: pointer; height: 64px; width: 64px; border: 1px solid "+returnraritycolor(cubepediacubesdisplayarray[i].rarity)+"; border-radius: 3px; margin: 3px; padding: 3px;'><img id='cubepediaentryimage"+cubepediacubesdisplayarray[i].cubeid+"' src='"+cubepediacubesdisplayarray[i].image+"' style='width: 64px; height: 64px; filter: grayscale(100%);'/></div>")
+	$("#cubepediacubes").append("<div id='cubepediaentry"+cubepediacubesdisplayarray[i].cubeid+"' style='cursor: pointer; height: 64px; width: 64px; border: 1px solid "+returnraritycolor(cubepediacubesdisplayarray[i].rarity)+"; border-radius: 3px; margin: 3px; padding: 3px; display: inline-block;'><img id='cubepediaentryimage"+cubepediacubesdisplayarray[i].cubeid+"' src='"+cubepediacubesdisplayarray[i].image+"' style='width: 64px; height: 64px; filter: grayscale(100%);'/></div>")
 }
 for (i = 0; i < cubepediacubesdisplayarray.length; i++){
 	createclickablecubepediaentry(cubepediacubesdisplayarray[i].cubeid)
@@ -35,7 +35,6 @@ function getboxacubeisin(cubeid) {
 	return false
 }
 function cubepediapopup(entry) {
-	console.log(trueallcubes.filter(cube => cube.cubeid == entry)[0].name)
 	if (user.foundcubes.includes(entry) == true){
 		$("#cubepediaoverlayname").html(trueallcubes.filter(cube => cube.cubeid == entry)[0].name)
 		$("#cubepediaoverlayimage").html("<img src='"+trueallcubes.filter(cube => cube.cubeid == entry)[0].image+"' style='width: 100px; height: 100px; filter: grayscale(0%)'/>")

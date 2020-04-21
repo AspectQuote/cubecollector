@@ -21,6 +21,28 @@ function updateprofiledisplay() {
 	$("#profilestatsmain").append("<div class='statcontainers' id='stataveragevalue'>Average Item Value: $"+(getaverageinventoryvalue()/100).toLocaleString()+"</div>")
 	$("#profilestatsmain").append("<div class='statcontainers' id='statskillpoints'>Skill Points: "+user.skillpoints+"</div>")
 	$("#profilestatsmain").append("<div class='statcontainers' id='statquestsdone'>Quests Completed: "+user.questscompleted+"</div>")
+	for (i = 0; i < user.featureditems.length; i++){
+		if (user.featureditems[i] != false){
+			$("#profileshowcaseicon"+i).attr("src", user.featureditems[i].cube.image)
+			$("#profileshowcasename"+i).html(user.featureditems[i].cube.name)
+			$("#profileshowcase"+i).unbind()
+			createclickableshowcase(i)
+		} else {
+			$("#profileshowcaseicon"+i).attr("src", 'sprites/unknown.png')
+			$("#profileshowcasename"+i).html('')
+			$("#profileshowcase"+i).unbind()
+		}
+	}
+	$("#profileshowcasefooter").html("$"+(valuesadded(user.featureditems.filter(slot => slot != false))/100).toLocaleString())
+}
+function createclickableshowcase(e){
+	$("#profileshowcase"+e).click(function(){
+		user.inventory.push(user.featureditems[e])
+		user.featureditems[e] = false
+		updateprofiledisplay()
+		updateinventorydisplay()
+		savegame()
+	})
 }
 function getbestusercube(whichpart) {
 	if (whichpart == "name") {

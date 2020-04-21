@@ -6,25 +6,44 @@ function createclickablebox(e){
     $("#box"+selectedbox.boxid).css("filter",  "")
     selectedbox = allboxes[e]
     $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
-    console.log("Selected box is now "+allboxes[e].name)
     $("#box"+e).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
+    $("#casebuybutton").html("BUY BOX ($"+selectedbox.price/100+")")
   })
+}
+$("#cubeinspectclosebutton").click(function(){
+  $("#cubeinspectoverlay").hide()
+})
+$("#cubeinspectoverlay").hide()
+function inspectcube(slot) {
+  $("#cubeinspectionname").html("<span style='color: "+returnraritycolor(user.inventory[slot].cube.rarity)+"'>"+user.inventory[slot].cube.name+"</span>")
+  $("#cubeinspectionimg").html("<img src='"+user.inventory[slot].cube.image+"' style='height: 100%; filter: drop-shadow(0px 0px 5px "+returnraritycolor(user.inventory[slot].cube.rarity)+") drop-shadow(0px 0px 5px "+returnraritycolor(user.inventory[slot].cube.rarity)+")'/>")
+  $("#cubeinspectiondescription").html(user.inventory[slot].cube.flavortext)
+  $("#cubeinspectionprice").html("$"+(user.inventory[slot].cube.price/100).toLocaleString())
+  $("#cubeinspectionsellbutton").unbind()
+  $("#cubeinspectionsellbutton").click(function(){
+    user.money += user.inventory[slot].cube.price
+	    user.inventory.splice(slot, 1)
+	    updateinventorydisplay()
+	    updatemoneydisplay()
+	    updatequestsdisplay()
+	    savegame()
+    $("#cubeinspectoverlay").hide()
+  })
+  $("#cubeinspectoverlay").show()
 }
 function createclickablesellable(e, jackpotmode, tradeupmode, cfmode){
 	$("#inventoryslot"+e).unbind()
 	$("#inventoryslot"+e).dblclick(function(){
-    user.money += user.inventory[e].cube.price
-    user.inventory.splice(e, 1)
-    updateinventorydisplay()
-    updatemoneydisplay()
-    updatequestsdisplay()
-    savegame()
-  })
+	    user.money += user.inventory[e].cube.price
+	    user.inventory.splice(e, 1)
+	    updateinventorydisplay()
+	    updatemoneydisplay()
+	    updatequestsdisplay()
+	    savegame()
+	    $("#cubeinspectoverlay").hide()
+	})
   $("#inventoryslot"+e).click(function(){
-    $("#lastunboxicon").attr("src", user.inventory[e].cube.image)
-    $("#lastunboxname").html(user.inventory[e].cube.name)
-    $("#lastunboxflavortext").html(user.inventory[e].cube.flavortext)
-	$("#lastunboxicon").css("filter",  "drop-shadow(-1px -1px 5px "+returnraritycolor(user.inventory[e].cube.rarity)+") drop-shadow(1px 1px 5px "+returnraritycolor(user.inventory[e].cube.rarity)+")")
+    inspectcube(e)
   })
   if (jackpotmode == true || currenttab == "jackpot") {
     $("#inventoryslot"+e).unbind()
@@ -56,11 +75,26 @@ function createclickablesellable(e, jackpotmode, tradeupmode, cfmode){
       }
     })
   }
+  if (currenttab == "profile") {
+    $("#inventoryslot"+e).unbind()
+    $("#inventoryslot"+e).click(function(){
+      if (user.featureditems.filter(slot => slot == false).length >= 1){
+	user.featureditems[user.featureditems.indexOf(false)] = user.inventory[e]
+	user.inventory.splice(e,1)
+	updateinventorydisplay()
+	updateprofiledisplay()
+	savegame()
+      } else {
+	sendusermessage('error', 'Could not add item to your showcase!', 'Your showcase is full!')
+      }
+    })
+  }
 }
 function updateinventorydisplay(jackpotmode, tradeupmode, cfmode) {
+  $("#cubeinspectoverlay").hide()
   $("#inventory").html("")
   for(i=0; i < user.inventory.length; i++) {
-	 $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; border-radius: 3px; width: 52px; height: 52px; margin: 3px;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(0px 0px 2px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(0px 0px 2px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div><div class='prefixoverlay' id='prefixoverlay"+i+"'  style='position: absolute; top: 0; left: 0; font-size: x-small; color: "+returnraritycolor(user.inventory[i].prefix.rarity)+"'></div></div>")
+	 $("#inventory").append("<div style='cursor: pointer; border: 2px solid "+returnraritycolor(user.inventory[i].cube.rarity)+"; border-radius: 3px; width: 52px; height: 52px; margin: 3px; display: inline-block;' class='inventoryslots' id='inventoryslot"+i+"'><img style='width:52px; filter: drop-shadow(0px 0px 2px "+returnraritycolor(user.inventory[i].cube.rarity)+") drop-shadow(0px 0px 2px "+returnraritycolor(user.inventory[i].cube.rarity)+")' src='"+user.inventory[i].cube.image+"'><div class='itempriceoverlay'>$"+(user.inventory[i].cube.price/100).toLocaleString()+"</div><div class='prefixoverlay' id='prefixoverlay"+i+"'  style='position: absolute; top: 0; left: 0; font-size: x-small; color: "+returnraritycolor(user.inventory[i].prefix.rarity)+"'></div></div>")
 	 if (user.inventory[i].cube.price > user.stats.bestcube.price) {
 	   user.stats.bestcube = user.inventory[i].cube
 	 }
@@ -77,7 +111,7 @@ function updateinventorydisplay(jackpotmode, tradeupmode, cfmode) {
   }
   $("#inventoryslotsfilled").html(user.inventory.length)
   $("#inventoryslotsmax").html("/"+user.maxinventory)
-  $("#inventoryvalue").html("Inventory Value: $"+(getplayerinventoryvalue()/100).toLocaleString())
+  $("#inventoryvalue").html("Total Value: $"+(getplayerinventoryvalue()/100).toLocaleString())
   updatequestsdisplay()
 }
 function getprefixrarity(slot) {
@@ -98,6 +132,7 @@ function updateboxesdisplay() {
     }
   }
   $("#casename").html(selectedbox.name + " ("+user.boxes[selectedbox.boxid].amount+" owned)")
+  $("#casebuybutton").html("BUY BOX ($"+selectedbox.price/100+")")
   $("#box"+allboxes.indexOf(selectedbox)).css("filter",  "drop-shadow(-1px -1px 3px rgb(20, 20, 20)) drop-shadow(1px 1px 3px rgb(20, 20, 20))")
 }
 hidealltabs()
@@ -116,3 +151,9 @@ $("#inventoryselling").html("Sell Below $" + (user.sellbelowprice/100).toLocaleS
 makenewquest()
 $("#entries").css("transition", user.spinspeed+'s')
 $("#entries").css("transition-timing-function", "cubic-bezier(.31,.9985,.31,.9985)")
+window.setTimeout(function(){
+  $("#loadingscreen").fadeOut(1500)
+  window.setTimeout(function(){
+    $("#loadingscreen").remove()
+  }, 1600)
+}, 3000)
