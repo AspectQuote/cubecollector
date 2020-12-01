@@ -150,7 +150,7 @@ const starrynightcube = new Cube("Starry Night Cube", red, "A small piece of spa
 // Home box, 53 cubes
 const brownbookcube                = new Cube("Brown Book Cube", light_green, "It's a completely blank, tiny book.", 10, "sprites/homebox/brownbookcube.png")
 const greenbookcube                = new Cube("Green Book Cube", light_green, "It's a completely blank, tiny book.", 5, "sprites/homebox/greenbookcube.png")
-const redbookcube  		         = new Cube("Red Book Cube", light_green, "It's a completely blank, tiny book.", 7, "sprites/homebox/redbookcube.png")
+const redbookcube  		             = new Cube("Red Book Cube", light_green, "It's a completely blank, tiny book.", 7, "sprites/homebox/redbookcube.png")
 const lavenderbookcube             = new Cube("Lavender Book Cube", light_green, "It's a completely blank, tiny book.", 9, "sprites/homebox/lavenderbookcube.png")
 const bluebedcube                  = new Cube("Blue Bed Cube", light_green, "This... is a small bed!", 12, "sprites/homebox/bluebedcube.png")
 const redbedcube                   = new Cube("Red Bed Cube", light_green, "This... is a small bed!", 14, "sprites/homebox/redbedcube.png")
@@ -459,6 +459,27 @@ worldofgoocube = new Cube('World Of Goo Cube', purple, 'you guys know this game?
 silksongcube = new Cube('Sliksong Cube', black, 'the hypeeeeeeee! the extremely anticipated sequel to the kickstarter success of hollow knight! now, you dont play as the knight! how cool is that!?', 554765, 'sprites/gameboxtwo/silksong.png')
 cheatingcube = new Cube('Cheating Cube', yellow, 'cheaters. unfair advantage taking, fun ruining nerds', 1987000, 'sprites/gameboxtwo/cheating.png')
 saltcube = new Cube('Salt Cube', black, 'HOW DID HE KILL ME!? HE IS OBVIOUSLY HACKING!!!!!!!!!!', 509090, 'sprites/gameboxtwo/salt.png')
+
+// Aspect's Box
+jscube = new Cube("JS Cube", light_green, "Javascript is Aspect's first programming language.", 705, "sprites/aspectsbox/jscube.png")
+csscube = new Cube("CSS Cube", light_green, "Aspect doesn't like working with CSS very much, but he can get his way around it now.", 688, "sprites/aspectsbox/csscube.png")
+htmlcube = new Cube("HTML Cube", light_green, "HTML is the backbone of any website, and it's Aspects second-favorite programming language", 692, "sprites/aspectsbox/htmlcube.png")
+pastelpinkcube = new Cube("Pastel Pink Cube", green, "Aspect's favorite color is pastel pink, or more specifically, #da87da", 2522, "sprites/aspectsbox/pastelpinkcube.png")
+musiccube = new Cube("Music Cube", green, "In 2017, Aspect didn't enjoy music at all, but now he loves it!", 1821, "sprites/aspectsbox/musiccube.png")
+thinkinsightfullycube = new Cube("Think Insightfully Cube", blue, "Aspect's first 'big' project, it was a text-based adventure game with role playing elements and a crafting system. (It's busted as shit now so don't even bother trying to play.)", 1302, "sprites/aspectsbox/thinkinsightfullycube.png")
+ttoadcube = new Cube("The Treasure of a Dungeon Cube", blue, "Aspect's first inspired project, it is very similar to this game, but it didn't work at all.", 920, "sprites/aspectsbox/ttoadcube.png")
+pastacube = new Cube("Pasta Cube", purple, "All of Aspect's favorite meals are pasta-based! (He doesn't not like pizza, however.)", 4230, "sprites/aspectsbox/pastacube.png")
+animecube = new Cube("Anime Cube", purple, "Aspect is an Anime enjoyer. (Yeah, he's seen JoJo, and he liked it.)", 5262, "sprites/aspectsbox/animecube.png")
+sweatercube = new Cube("Sweater Cube", purple, "Aspect loves to wear sweaters, but not the plaid ones, just the plain colored or striped ones.", 5692, "sprites/aspectsbox/sweatercube.png")
+friendcube = new Cube("Friend Cube", orange, "When Aspect was in middle school, he didn't have any close friends. But in high school, he really came out of his shell and built some meaningfuul relationships!", 16230, "sprites/aspectsbox/friendcube.png")
+tftwoclickercube = new Cube("TF2Clicker Cube", orange, "The 'Sequel' to cube collector, TF2Clicker has very similar gameplay to CSGOclicker and Cube Collector, but is much less polished then CSGOclicker.", 36000, "sprites/aspectsbox/tf2clickercube.png")
+updatecube = new Cube("Update Cube", orange, "Aspect is not that great at coding, so... he updates his games with bug fixes and new content!", 31752, "sprites/aspectsbox/updatecube.png")
+videogamecube = new Cube("Video Game Cube", red, "I know it may be hard to believe, but aspect is a huge fan of video games! (His favorites are TF2, Krunker, and Celeste)", 99923, "sprites/aspectsbox/videogamecube.png")
+handcube = new Cube("Hand Cube", red, "It may sound a little creepy, but hands are Aspect's favorite part of the human body. (Not in a weird, sexual way.)", 80203, "sprites/aspectsbox/handcube.png")
+introversioncube = new Cube("Introversion Cube", black, "It may be hard to believe, but Aspect is an introvert!", 400000, "sprites/aspectsbox/introversioncube.png")
+logiccube = new Cube("Logic Cube", black, "Aspect thinks very logically, and thinks that a logical solution to most everything is the correct one.", 500000, "sprites/aspectsbox/logiccube.png")
+aspectslaptop = new Cube("Aspect's Laptop", yellow, "It's Aspect's Laptop! (Please don't go snooping...)", 2292386, "sprites/aspectsbox/aspectslaptopcube.png")
+claritycube = new Cube("Clarity Cube", yellow, "The next game by Aspect, it's planned release date is around christmas of 2020.", 3492722, "sprites/aspectsbox/claritycube.png")
 
 // gold Cubes
 const adamantiumcube = new Cube("Adamantium Cube", yellow, "A small piece of the rarest metal on earth.", 1539843, "sprites/golds/adamantiumcube.png")

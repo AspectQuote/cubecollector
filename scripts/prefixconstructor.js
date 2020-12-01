@@ -108,6 +108,17 @@ addprefix("nauseating", 0.9, light_green)
 addprefix("burly", 1.7, orange)
 addprefix("funny", 1.2, blue)
 
+addprefix("flaming", 1.2, orange)
+addprefix("Aspect's Own", 4, black)
+addprefix("monochromatic", 1.2, green)
+addprefix("coincedental", 1.2, green)
+addprefix("stupid", 0.3, light_green)
+addprefix("ridiculous", 2.2, red)
+addprefix("adjective", 1.5, orange)
+addprefix("Anime", 1, green)
+addprefix("slow", 0.6, light_green)
+addprefix("random", 3, black)
+
 function applyprefixestouserinventory() {
 	for (var i = 0; i < user.inventory.length; i++) {
 		if (user.inventory[i].prefix != false) {
